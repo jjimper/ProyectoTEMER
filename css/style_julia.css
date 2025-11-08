@@ -1,0 +1,77 @@
+/* Selector universal para aplicar border-box a todo, incluyendo padding y border dentro de width/height [cite: 5452] */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales a toda la página */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f9; /* Color de fondo */
+    color: #333;
+}
+
+/* Estilo para los contenedores principales (header, nav, main, footer) */
+.contenedor-principal {
+    width: 90%; /* Ancho relativo para responsividad [cite: 3198] */
+    margin: 20px auto; /* Centrar horizontalmente y dar margen vertical [cite: 5133] */
+    padding: 10px; /* Relleno interior [cite: 5092] */
+    border: 1px solid #ccc; /* Borde simple [cite: 4970] */
+    background-color: white; 
+}
+
+/* Estilo específico para el título de la web (Selector ID) [cite: 6586] */
+#titulo-web {
+    color: #004d99;
+    text-align: center;
+    border-bottom: 2px solid #004d99; /* Subrayado temático */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Navegación - Eliminamos los puntos de la lista [cite: 4024] */
+nav ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+/* Estilos para los elementos de la lista de navegación (Selector de Descendiente) [cite: 6606] */
+nav ul li {
+    display: inline-block; /* Convierte los li en elementos en línea para que se muestren uno al lado del otro [cite: 3452] */
+    margin-right: 15px;
+    background-color: #e6e6e6;
+    padding: 5px 10px;
+}
+
+/* Estilo para el párrafo que será manipulado por JS (Selector de ID) */
+#parrafo-dinamico {
+    border: 2px dashed red;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+}
+
+/* Estilo de resaltado (Selector de Clase) */
+.destacado {
+    font-weight: bold;
+    color: #cc0000;
+}
+
+/* Estilo para los contenedores de imágenes (simulando una fila sin Flexbox) */
+.seccion-imagenes .imagen-contenedor {
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    border: 1px dotted #666;
+    display: inline-block; /* Para alinearlos horizontalmente, en vez de usar float/flexbox */
+}
+
+/* Estilos del footer */
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 20px;
+}
