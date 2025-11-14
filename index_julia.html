@@ -2,74 +2,115 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tecnologías Emergentes - Inicio</title>
-    <link rel="stylesheet" href="css/style_julia.css">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <title>Vida Submarina</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Estilos generales del sitio web -->
+    <link rel="stylesheet" href="css/style_index_julia.css"> <!-- Estilos específicos para esta página -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Para ancho completo, "1" no hay zoom-->
     <script src="js/script_julia.js" defer></script>
 </head>
 <body>
 
     <header class="contenedor-principal">
-        <h1 id="titulo-web">Desarrollo Web (MUIT)</h1>
-        <p>Tecnologías Emergentes - Curso 25/26</p>
+        <h1 id="titulo-web">Vida submarina</h1>
     </header>
 
     <nav class="contenedor-principal">
         <ul>
-            <li class="enlace-nav"><a href="index.html">Inicio</a></li>
-            <li class="enlace-nav"><a href="tema2.html">Tema 2: HTML/CSS</a></li>
-            <li class="enlace-nav"><a href="tema3.html">Tema 3: JavaScript</a></li>
-            <li class="enlace-nav"><a href="tema4.html">Tema 4: Servidores</a></li>
+            <li class="enlace-nav"><a href="index_julia.html">Inicio</a></li>
+            <li class="enlace-nav"><a href="noticias.html">Noticias</a></li>
+            <li class="enlace-nav"><a href="videos.html">Videos/Curiosidades</a></li>
+            <li class="enlace-nav"><a href="juegos.html">Juegos</a></li>
         </ul>
     </nav>
 
     <main class="contenedor-principal">
-        
-        <section id="presentacion-web" class="seccion-destacada">
-            <h2>Introducción al Curso</h2>
-            <article>
-                <p>Bienvenido al módulo de desarrollo web de la asignatura. Aquí encontrarás recursos sobre la estructura (HTML), la presentación (CSS) y el comportamiento dinámico (JavaScript) de las aplicaciones web modernas[cite: 4172].</p>
-                <p>Para ver el efecto de la interactividad, haz clic en el siguiente texto:</p>
-                <button id="boton-interactivo" onclick="cambiarTexto()">Haz clic para el cambio!</button>
-                <p id="parrafo-dinamico">Este párrafo cambiará su contenido y estilo con JavaScript.</p>
-            </article>
-        </section>
 
-        <section class="seccion-imagenes">
-            <h2>Componentes clave</h2>
-            <div class="imagen-contenedor">
-                <img src="img/html5_logo.png" alt="Logo de HTML5" width="100" height="100">
-                <p>Estructura y Contenido</p>
+        <div class="FiltroAnimales" id="contenedor-filtros">
+                <button class="btn-filtro" id="btn-todos" onclick=MostrarTodos()>Todos</button>
+                <button class="btn-filtro" id="btn-mamiferos" onclick=FiltrarMamiferos()>Mamíferos</button>
+                <button class="btn-filtro" id="btn-oviparos" onclick=FiltrarOviparos()>Ovíparos</button>
+        </div>
+
+        <div class="Animales" id="contenedor-animales">
+            <!--Mamiferos-->
+            <div class="mamifero">
+                <h4>Delfín  (Mamífero)</h4>
+                <img src="./img/delfin.png" alt="Delfin" />
+                <p>El delfín es uno de los animales más inteligentes del mar. Siempre están sonriendo y les encanta saltar y jugar en las olas. Usan sonidos especiales para hablar entre ellos y encontrar sus peces favoritos.</p>
             </div>
-            <div class="imagen-contenedor">
-                <img src="img/css3_logo.png" alt="Logo de CSS3" width="100" height="100">
-                <p>Estilos de Presentación</p>
+            <div class="mamifero">
+                <h4>Foca (Mamífero)</h4>
+                <img src="./img/foca.png" alt="Foca" />
+                <p>La foca es un animal muy ágil en el agua, donde usa sus aletas para nadar rápido. Pero también le gusta salir a la tierra o al hielo para tomar el sol y descansar. ¡Parecen salchichas gorditas con bigotes!</p>
             </div>
-            <div class="imagen-contenedor">
-                <img src="img/js_logo.png" alt="Logo de JavaScript" width="100" height="100">
-                <p>Comportamiento Dinámico</p>
+            <div class="mamifero">
+                <h4>Ballena (Mamífero)</h4>
+                <img src="./img/ballena.png" alt="Ballena" />
+                <p>La ballena es el animal más grande del mundo. Vive toda su vida en el mar y, aunque parece un pez, es un mamífero: respira aire por un agujero en la cabeza (el espiráculo) y es muy buena nadadora en el océano.</p>
             </div>
-        </section>
-        
-        <section class="seccion-formulario">
-            <h2>Contacto Rápido</h2>
-            <form id="formulario-contacto">
-                <label for="email-usuario">Email (Obligatorio):</label>
-                <input type="email" id="email-usuario" name="email-usuario" required>
-                <br><br>
-                <label for="comentarios">Comentarios:</label>
-                <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
-                <br><br>
-                <input type="submit" value="Enviar Mensaje">
-            </form>
-        </section>
+            <div class="mamifero">
+                <h4>Leon Marino (Mamífero)</h4>
+                <img src="./img/leon_marino.png" alt="Leon Marino" />
+                <p>Un primo de la foca que tiene orejas pequeñas. Son muy ruidosos y les encanta hacer malabares con pelotas si los entrenan.</p>
+            </div>
+            <div class="mamifero">
+                <h4>Manatí (Mamífero)</h4>
+                <img src="./img/manati.png" alt="Manatí" />
+                <p>A veces se les llama "vacas marinas" porque son lentos y solo comen plantas del mar. Son muy gentiles y tienen una cola grande y redonda.</p>
+            </div>
+            <div class="mamifero">
+                <h4>Oso Polar (Mamífero)</h4>
+                <img src="./img/oso_polar.png" alt="Oso Polar" />
+                <p>Aunque pasa tiempo en la tierra, es un mamífero marino porque necesita el hielo y el mar para cazar y sobrevivir.</p>
+            </div>
+            <div class="mamifero">
+                <h4>Nutria Marina (Mamífero)</h4>
+                <img src="./img/nutria_marina.png" alt="Nutria Marina" />
+                <p>Pasa mucho tiempo flotando de espaldas en el agua, a veces con sus amigos, y usa piedritas para abrir los mariscos que come</p>
+            </div>
+            <!--Oviparos-->
+            <div class="oviparo">
+                <h4>Tortuga Marina (Oviparo)</h4>
+                <img src="./img/tortuga.png" alt="Tortuga" />
+                <p>La tortuga marina nada por todo el océano, pero cuando es hora de tener a sus bebés, viaja a la playa. Hace un agujero en la arena con sus aletas y pone muchos huevos redondos, luego los tapa y vuelve al mar.</p>
+            </div>
+            <div class="oviparo">
+                <h4>Pez Payaso (Oviparo)</h4>
+                <img src="./img/pez_payaso.png" alt="Pez Payaso" />
+                <p>Este pez pequeño y de colores naranja y blanco brillante vive dentro de una planta marina venenosa llamada anémona. ¡Pero a él no le hace daño! Es su casa segura y pone sus huevos cerca de ella.</p>
+            </div>
+            <div class="oviparo">
+                <h4>Pingüino (Oviparo)</h4>
+                <img src="./img/pinguino.png" alt="Pingüino" />
+                <p>El pingüino es un ave que no puede volar, ¡pero es un campeón nadando! Pone sus huevos en la tierra o el hielo, y a menudo, el papá pingüino es el encargado de cuidar el huevo y mantenerlo calentito entre sus patas hasta que nace la cría.</p>
+            </div>
+            <div class="oviparo">
+                <h4>Pulpo (Oviparo)</h4>
+                <img src="./img/pulpo.png" alt="Pulpo" />
+                <p>El pulpo es un animal con ocho brazos (llamados tentáculos) que usa para moverse y atrapar comida. Es muy listo y puede cambiar de color para esconderse. La mamá pulpo cuida sus huevos con mucho amor hasta que nacen los bebés</p>
+            </div>
+            <div class="oviparo">
+                <h4>Calamar (Oviparo)</h4>
+                <img src="./img/calamar.png" alt="Calamar" />
+                <p>Un familiar del pulpo que es muy rápido y tiene diez brazos (ocho cortos y dos largos). Pone grandes grupos de huevos que a veces parecen racimos de uvas.</p>
+            </div>
+            <div class="oviparo">
+                <h4>Tiburón (Oviparo)</h4>
+                <img src="./img/tiburon.png" alt="Tiburón" />
+                <p>Este pez pequeño y de colores naranja y blanco brillante vive dentro de una planta marina venenosa llamada anémona. ¡Pero a él no le hace daño! Es su casa segura y pone sus huevos cerca de ella.</p>
+            </div>
+            <div class="oviparo">
+                <h4>Estrella de Mar (Oviparo)</h4>
+                <img src="./img/estrella_de_mar.png" alt="Estrella de Mar" />
+                <p>Este animal tiene forma de estrella y se mueve muy lento. Su forma de tener bebés es poniendo sus huevos directamente en el agua, donde crecen solos.</p>
+            </div>
+            
+        </div>
 
     </main>
 
     <footer class="contenedor-principal">
-        <p>&copy; 2025 Tecnologías Emergentes. <span class="destacado">Júlia Jiménez Pérez</span></p>
+        <p>&copy; Trabajo Tecnologias Emergentes 2025 <span class="destacado"> Marta Ripoll, Maria, Laura Garcia y Julia Jimenez</span></p>
     </footer>
 
 </body>
