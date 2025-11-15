@@ -1,4 +1,4 @@
-/*Estilos header*/
+ï»¿/*Estilos header*/
 header {
     background-color: #0077b6;
     color: white;
@@ -8,24 +8,24 @@ header {
 
 #titulo-web {
     margin: 0;
-    font-size: 2.5em; /* Tamaño de fuente cubierto. */
+    font-size: 2.5em; /* Tamaï¿½o de fuente cubierto. */
 }
 
 /*Estilos menu Navegacion*/
 nav.contenedor-principal {
     background-color: #0096c7;
-    margin-bottom: 20px; /* Separación antes del <main> */
+    margin-bottom: 20px; /* Separaciï¿½n antes del <main> */
 }
 
 nav.contenedor-principal ul {
-    list-style-type: none; /* Quita las viñetas (cubierto). */
+    list-style-type: none; /* Quita las viï¿½etas (cubierto). */
     padding: 0;
     margin: 0;
     text-align: center;
 }
 
 nav.contenedor-principal li.enlace-nav {
-    display: inline-block; /* Muestra los enlaces en línea (cubierto). */
+    display: inline-block; /* Muestra los enlaces en lï¿½nea (cubierto). */
 }
 
 nav.contenedor-principal a {
@@ -49,7 +49,7 @@ footer {
     padding: 15px 0;
     text-align: center;
     border-top: 5px solid #00b4d8;
-    margin-top: 30px; /* Separación después del <main> */
+    margin-top: 30px; /* Separaciï¿½n despuï¿½s del <main> */
     /* clear: both es esencial si <main> contiene floats que no se limpiaron. */
     clear: both;
 }
@@ -58,21 +58,4 @@ footer {
     font-weight: bold; /* Estilo de texto cubierto. */
 }
 
-/*Estilo base para todos los bodys */
-/*body {*/
-    /* El estilo base debe ir aquí, aunque sea solo para un fondo general. */
-    /*margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;*/ /* Fuente por defecto, cubierta. */
-    /*background-color: #f4f9f9;
-    color: #333;
-}*/
 
-/* El contenedor principal que centra y limita el ancho del contenido */
-/*.contenedor-principal {
-    margin: 0 auto;*/ /* Centrado horizontal (cubierto en el modelo de caja). */
-    /*width: 90%;*/ /* Ancho fijo para centrar. */
-    /*max-width: 1200px;
-    padding: 0 10px;
-    box-sizing: border-box;*/ /* Asegura que padding no aumente el ancho total (cubierto). */
-/*}*/

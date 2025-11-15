@@ -1,0 +1,62 @@
+/* --- 1. Contenedor Principal: Ocupar 100% --- */
+section.juegos {
+    width: 100%;
+    /* Limpiamos cualquier flotante que venga de los .juegos (tarjetas) */
+    overflow: hidden;
+    padding: 20px;
+    background-color: #f4f4f9;
+    text-align: center;
+}
+
+/* --- 2. Contenedores de Juego: Disposición Vertical (Columna) --- */
+div.juegos {
+    /* [REGLA CLAVE VERTICAL] Los divs son block por defecto, forzamos 100% de ancho */
+    display: block;
+    width: 100%;
+    /* Separación entre las tarjetas (Modelo de Caja) */
+    margin: 10px 0;
+    /* Para contener los elementos flotantes internos (cabecera y texto-juegos) */
+    overflow: hidden;
+    /* Estilos visuales de la tarjeta */
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* --- 3. Contenido Interno: Horizontal (Cabecera y Texto) --- */
+
+.cabecera-juegos {
+    /* [REGLA CLAVE HORIZONTAL] Flota a la izquierda para ir al lado del texto-juegos */
+    float: left;
+    /* Ocupa aproximadamente la mitad del espacio de la tarjeta */
+    width: 30%;
+    padding-right: 15px;
+    margin-right: 15px;
+    border-right: 1px dashed #ddd;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.texto-juegos {
+    /* Ocupa el espacio restante junto a .cabecera-juegos */
+    float: left;
+    width: 65%;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+/* --- 4. H4 e Imagen: Vertical dentro de Cabecera --- */
+
+.cabecera-juegos h4 {
+    /* Es H4, es display: block y se apila por defecto */
+    margin-bottom: 5px;
+}
+
+.cabecera-juegos img {
+    /* Forzamos a block (vertical) y la centramos */
+    display: block;
+    margin: 0 auto 10px auto;
+    max-width: 100%;
+    height: auto;
+}
