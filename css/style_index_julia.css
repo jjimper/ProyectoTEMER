@@ -1,38 +1,30 @@
-/* ==================================================== */
-/* 1. Estilos para los Filtros (Botones) */
-/* ==================================================== */
+/*Botones*/
 
 .FiltroAnimales {
     padding: 15px;
     margin-bottom: 20px;
     background-color: #e0f7fa; /* Fondo más claro para el área del filtro */
-    border: 1px solid #b2ebf2;
+    border: 2px solid #b2ebf2;
     /* Redondeo de esquinas para el contenedor de filtros */
     border-radius: 10px;
-}
-
-.clase-FiltroAnimales {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+    display:flex;
+    margin-bottom:5px;
 }
 
 .btn-filtro {
     padding: 10px 20px;
     border: 1px solid #00acc1;
-    background-color: #00bcd4; /* Color de botón más claro */
+    background-color: #00bcd4; /* Color de botón más claro */ /*CAMBIAR COLORES*/
     color: white;
-    cursor: pointer;
+    align-content: center;
+    cursor: pointer; /*Para que aparezca el dedo*/
     text-align: center;
     font-size: 1.1em;
-    display: inline-block;
     margin-right: 15px;
-    /* Redondeo de esquinas para los botones */
-    border-radius: 5px;
+    border-radius: 5px; /* Redondeo de esquinas para los botones */
+    flex-grow: 1; /* Permite que el botón crezca y ocupe espacio libre */
 }
 
-/* Pseudo-clase :hover para los botones */
 .btn-filtro:hover {
     background-color: #00838f;
 }
@@ -42,7 +34,7 @@
 /* ==================================================== */
 
 .Animales {
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 10px;
     border: 2px solid #ccc;
     /* Redondeo de esquinas para el contenedor general de animales */

@@ -1,57 +1,59 @@
 ﻿/*Estilos header*/
+body {
+    background-color: #e2e8f3 /*CAMBIAR COLORES*/
+}
+
 header {
-    background-color: #0077b6;
+    background-color: #7398c4; /*CAMBIAR COLORES*/
     color: white;
     padding: 20px 0;
     text-align: center;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 #titulo-web {
     margin: 0;
-    font-size: 2.5em; /* Tama�o de fuente cubierto. */
+    font-size: 3em;
 }
 
 /*Estilos menu Navegacion*/
 nav.contenedor-principal {
-    background-color: #0096c7;
-    margin-bottom: 20px; /* Separaci�n antes del <main> */
+    background-color: #88a7d0; /*CAMBIAR COLORES*/
+    margin-bottom: 10px; /* Separacion antes del <main> */
+    border-radius: 5px;
 }
 
 nav.contenedor-principal ul {
-    list-style-type: none; /* Quita las vi�etas (cubierto). */
     padding: 0;
     margin: 0;
     text-align: center;
 }
 
 nav.contenedor-principal li.enlace-nav {
-    display: inline-block; /* Muestra los enlaces en l�nea (cubierto). */
+    display: inline-block; /* Muestra los enlaces en linea. */
 }
 
 nav.contenedor-principal a {
-    text-decoration: none; /* Elimina el subrayado (cubierto). */
+    text-decoration: none; /* Elimina el subrayado. */
     color: white;
     padding: 15px 20px;
     display: block;
-    /* Pseudoclase :hover cubierta en el temario */
-    background-color: #0096c7;
-    transition: background-color 0.3s;
+    /*    background-color: #0096c7;*/
 }
 
 nav.contenedor-principal a:hover {
-    background-color: #00b4d8;
+    background-color: #00b4d8; /*CAMBIAR COLORES*/
 }
 
 /*Estilo pie de pagina*/
 footer {
-    background-color: #0077b6;
+    background-color: #0077b6; /*CAMBIAR COLORES*/
     color: white;
     padding: 15px 0;
     text-align: center;
-    border-top: 5px solid #00b4d8;
-    margin-top: 30px; /* Separaci�n despu�s del <main> */
-    /* clear: both es esencial si <main> contiene floats que no se limpiaron. */
-    clear: both;
+    border-top: 5px solid #00b4d8; /*CAMBIAR COLORES*/
+    margin-top: 10px; /* Separaci�n despu�s del <main> */
 }
 
 .destacado {
