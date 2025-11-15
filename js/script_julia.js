@@ -1,36 +1,38 @@
-function MostrarTodos() {
-    let animales = document.querySelectorAll('#contenedor-animales > div');
-    for (let i = 0; i < animales.length; i++) {
-        let animal = animales[i];
-        animal.style.display = 'block'; //Muestra el elemento
-    }
-}
 function OcultarTodos() {
     // Selecciona todos los divs descendientes del padre "contenedor-animales""
-    let todosLosAnimales = document.querySelectorAll('#contenedor-animales > div');
+    let TodasLasTarjetas = document.querySelectorAll('#contenedor-info > div');
 
-    for (let i = 0; i < todosLosAnimales.length; i++) {
-        let animal = todosLosAnimales[i];
-        animal.style.display = 'none';         // Oculta el elemento.
+    for (let i = 0; i < TodasLasTarjetas.length; i++) {
+        let tarjeta = TodasLasTarjetas[i];
+        tarjeta.style.display = 'none';         // Oculta el elemento.
     }
 }
-function FiltrarOviparos() {
+function FiltrarAgenda2030() {
     OcultarTodos();
-    let animales_oviparos = document.querySelectorAll('.oviparo'); // Selecciono todos los elementos que tengan clase "oviparo" > Para clases uso el punto.
+    let tarjetas_Agenda2030 = document.querySelectorAll('.Agenda2030'); // Selecciono todos los elementos que tengan clase "oviparo" > Para clases uso el punto.
                                                                                                                               //> Para id uso el #.
-    for (let i = 0; i < animales_oviparos.length; i++) {
-        let animal = animales_oviparos[i];
-        animal.style.display = 'block';
+    for (let i = 0; i < tarjetas_Agenda2030.length; i++) {
+        let tarjeta_Agenda2030 = tarjetas_Agenda2030[i];
+        tarjeta_Agenda2030.style.display = 'block';
     }
 }
 
-function FiltrarMamiferos(){
+function FiltrarODS(){
     OcultarTodos();
-    let animales_mamiferos = document.querySelectorAll('.mamifero'); // Selecciono todos los elementos que tengan clase "mamifero"
-    for (let i = 0; i < animales_mamiferos.length; i++) {
-        let animal = animales_mamiferos[i];
-        animal.style.display = 'block';
+    let tarjetas_ODS = document.querySelectorAll('.ODS'); // Selecciono todos los elementos que tengan clase "mamifero"
+    for (let i = 0; i < tarjetas_ODS.length; i++) {
+        let tarjeta_ODS = tarjetas_ODS[i];
+        tarjeta_ODS.style.display = 'block';
     }
 }
 
-//document.addEventListener('DOMContentLoaded', MostrarTodos);
+function FiltrarODS14() {
+    OcultarTodos();
+    let tarjetas_ODS14 = document.querySelectorAll('.ODS14'); // Selecciono todos los elementos que tengan clase "mamifero"
+    for (let i = 0; i < tarjetas_ODS14.length; i++) {
+        let tarjeta_ODS14 = tarjetas_ODS14[i];
+        tarjeta_ODS14.style.display = 'block';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', FiltrarAgenda2030);
