@@ -11,6 +11,7 @@ header {
     font-size: 2.5em; /* Tama�o de fuente cubierto. */
 }
 
+
 /*Estilos menu Navegacion*/
 nav.contenedor-principal {
     background-color: #0096c7;
@@ -41,6 +42,22 @@ nav.contenedor-principal a {
 nav.contenedor-principal a:hover {
     background-color: #00b4d8;
 }
+/*** body ****/
+body {
+    /* 1. Usar Flexbox para el control de la disposición principal */
+    display: flex;
+    /* 2. Disponer los hijos (header, nav, main, footer) en columna */
+    flex-direction: column;
+    /* 3. Asegurar que el body ocupe al menos el 100% del alto del viewport */
+    min-height: 100vh;
+    /* Eliminar márgenes por defecto del navegador */
+    margin: 0;
+}
+main.contenedor-principal {
+    /* Ocupa todo el espacio vertical disponible entre <nav> y <footer> */
+    flex-grow: 1;
+}
+
 
 /*Estilo pie de pagina*/
 footer {
@@ -57,3 +74,4 @@ footer {
 .destacado {
     font-weight: bold; /* Estilo de texto cubierto. */
 }
+

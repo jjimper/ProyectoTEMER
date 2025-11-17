@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', FiltrarAgenda2030);
 function OcultarTodos() {
     // Selecciona todos los divs descendientes del padre "contenedor-animales""
     let TodasLasTarjetas = document.querySelectorAll('#contenedor-info > div');
@@ -34,5 +35,3 @@ function FiltrarODS14() {
         tarjeta_ODS14.style.display = 'block';
     }
 }
-
-document.addEventListener('DOMContentLoaded', FiltrarAgenda2030);

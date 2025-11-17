@@ -27,8 +27,8 @@
     margin: 0 5px;
     background-color: #007bff;
     color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    /*cursor: pointer;*/
+    /*transition: background-color 0.3s;*/
     /* Aseguramos que el tamaño de la caja se calcule incluyendo padding y borde */
     box-sizing: border-box;
 }
@@ -42,13 +42,13 @@
 /* Contenedor principal de todas las tarjetas de información. */
 .info {
     margin-top: 20px;
-    /* 4. Las fichas deben repartirse en fila: se usa flex con envolvimiento */
+    /* Distribucion en fila*/    
     display: flex;
     /* Permite que las tarjetas se envuelvan a la siguiente fila si no caben */
     flex-wrap: wrap;
     /* Distribuye el espacio entre las tarjetas */
     justify-content: space-between;
-    /* ARREGLO DE HUECO: Estira las tarjetas para que todas ocupen la misma altura en la fila */
+    /* Estira las tarjetas para que todas ocupen la misma altura en la fila */
     align-items: stretch;
 }
 
