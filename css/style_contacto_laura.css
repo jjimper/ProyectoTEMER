@@ -16,7 +16,7 @@ body {
 /* -------------------------
    MENÚ LATERAL
 -------------------------- */
-
+/* 
 .boton_menu label {
     font-size: 32px;
     cursor: pointer;
@@ -73,7 +73,7 @@ body {
 
 #boton_menu:checked ~ .container-menu {
     left: 0;
-}
+} */
 
 /* -------------------------
    HERO SECTION
