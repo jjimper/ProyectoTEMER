@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Vida Submarina</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Estilos generales del sitio web -->
-    <!-- Añade aqui los estilos específicos para tu página -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Para ancho completo, "1" no hay zoom-->
-    <!--Añade aqui tu js-->
+  <meta charset="UTF-8" />
+  <title>Vida Submarina - Noticias</title>
+  <link rel="stylesheet" href="../css/style_noticias_laura.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="../js/noticias_laura.js" defer></script>
 </head>
 <body>
+  <header class="contenedor-principal">
+    <h1 id="titulo-web">Vida submarina</h1>
+  </header>
 
-    <header class="contenedor-principal">
-        <h1 id="titulo-web">Vida submarina</h1>
-    </header>
+  <nav class="contenedor-principal">
+    <ul>
+      <li class="enlace-nav"><a href="../index_julia.html">Inicio</a></li>
+      <li class="enlace-nav"><a href="noticias.html">Noticias</a></li>
+      <li class="enlace-nav"><a href="videos.html">Videos/Curiosidades</a></li>
+      <li class="enlace-nav"><a href="juegos.html">Juegos</a></li>
+    </ul>
+  </nav>
 
-    <nav class="contenedor-principal">
-        <ul>
-            <li class="enlace-nav"><a href="../index_julia.html">Inicio</a></li>
-            <li class="enlace-nav"><a href="noticias.html">Noticias</a></li>
-            <li class="enlace-nav"><a href="videos.html">Videos/Curiosidades</a></li>
-            <li class="enlace-nav"><a href="juegos.html">Juegos</a></li>
-        </ul>
-    </nav>
+  <main class="contenedor-principal">
+  <section class="FiltroAnimales" id="filtros-noticias">
+    <button class="btn-filtro" onclick="cargarYMostrar('todas')">Todas</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('plastico')">Contaminación/Plástico</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('conservacion')">Conservación</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('especies')">Especies</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('todas')">Refrescar</button>
+  </section>
 
-    <main class="contenedor-principal">
-        <!--Crea aqui tu pagina-->
+  <section id="contenedor-noticias"></section>
+</main>
 
-    </main>
+<script src="../js/noticias_laura.js" defer></script>
 
-    <footer class="contenedor-principal">
-        <p>&copy; Trabajo Tecnologias Emergentes 2025 <span class="destacado"> Marta Ripoll, Maria, Laura Garcia y Julia Jimenez</span></p>
-    </footer>
 
+  <footer class="contenedor-principal">
+    <p>&copy; Trabajo Tecnologias Emergentes 2025 <span class="destacado"> Marta Ripoll, Maria, Laura Garcia y Julia Jimenez</span></p>
+  </footer>
 </body>
 </html>
