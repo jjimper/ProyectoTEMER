@@ -27,8 +27,8 @@
     margin: 0 5px;
     background-color: #007bff;
     color: white;
-    /*cursor: pointer;*/
-    /*transition: background-color 0.3s;*/
+    cursor: pointer;
+    transition: background-color 0.3s;
     /* Aseguramos que el tamaño de la caja se calcule incluyendo padding y borde */
     box-sizing: border-box;
 }
@@ -169,7 +169,7 @@
 }
 
 /* Propiedades generales de imágenes de ODS (mismo tamaño y centrado) */
-.ODS img, .ODS14 img {
+.ODS img {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -198,7 +198,7 @@
 
 /* ------------------ REQUISITO 2: ODS 14 (4 por Fila, Centrado, Hover) ------------------ */
 
-.ODS14 {
+.tarjeta_ODS14 {
     /*Ocupara todo el ancho de la pantalla*/
     width: 100%;
     /* 2. Solo aparezcan los títulos en bloque (apilados con columna) */
@@ -211,7 +211,11 @@
 }
 
 /* Asegurar que el título sea negrita y centrado */
-.ODS14 h4 {
+.ODS14 {
+    display:block;
+    width:100%;
+}
+.tarjeta_ODS14 h4 {
     font-weight: bold;
     text-align: center;
     /*align-items:center;*/
@@ -220,7 +224,7 @@
 }
 
 /* Ocultar el contenido inicialmente para ODS14 */
-.ODS14 .contenido-oculto {
+.tarjeta_ODS14 .contenido-oculto {
     display: none;
     width: 100%;
     padding-top: 10px;
@@ -228,7 +232,7 @@
 }
 
 /* Pseudo-clase :hover para mostrar el contenido oculto en ODS14 */
-.ODS14:hover .contenido-oculto {
+.tarjeta_ODS14:hover .contenido-oculto {
     display: block;
     padding-left: 15px;
     box-sizing: border-box;
@@ -236,7 +240,7 @@
 
     /* ------------------ REQUISITO 6: Ajuste de Tabla (Impacto en la Economía) ------------------ */
 
-.ODS14 table {
+.tarjeta_ODS14 table {
     /* 6. La tabla se ajuste a su contenedor y no se salga. */
     width: 100%;
     box-sizing: border-box;
@@ -245,9 +249,18 @@
 }
 
 /* 4. Estilo para las celdas de la tabla */
-.ODS14 th, .ODS14 td {
+.tarjeta_ODS14 th, .tarjeta_ODS14 td {
     border: 1px solid #aaa;
     padding: 8px;
     text-align: left;
     box-sizing: border-box;
+}
+
+.video-ODS14 {
+    /* 1. Activar Flexbox */
+    display: flex;
+    /* 2. Centrar los hijos (el iframe) en el eje principal (horizontal) */
+    justify-content: center;
+    /* 3. (Opcional) Centrar en el eje transversal (vertical) */
+    align-items: center;
 }
