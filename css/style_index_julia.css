@@ -95,7 +95,7 @@
 /* 1. HIJOS EN FILA: #contenedor-agenda organiza sus hijos en fila */
 #contenedor-agenda {
     display: inline-flex; /*PROBELMA EL */
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap; /* Evita que salte de línea */
     width: 100%;
     /*align-items: stretch;*/ /*Para alargar la altura */
@@ -103,7 +103,7 @@
 
 /* 2. HIJOS EN COLUMNA: .contenedor-img2030Titulo organiza h4 e img en columna */
 .contenedor-img2030Titulo {
-    display: flex;
+    display: inline-flex;
     flex-direction: column; /* Esto apila h4 e img (COLUMNA) */
     width: 250px;
     align-items: center; /* Centra h4 e img horizontalmente */
@@ -121,7 +121,7 @@
     justify-content: flex-start; /* Mantiene el contenido del párrafo a la izquierda de la caja */
     /* Quitamos flex-direction: column para que el párrafo se comporte más flexiblemente,
        pero para ser explícitos y asegurar el centrado, lo reajustamos: */
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center; /* Centra el párrafo horizontalmente en su contenedor */
 }
 
