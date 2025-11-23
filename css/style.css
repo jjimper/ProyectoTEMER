@@ -1,0 +1,157 @@
+﻿/*Estilos header*/
+header {
+    background-color: #0077b6;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#titulo-web {
+    margin: 0;
+    font-size: 2.5em; /* Tama�o de fuente cubierto. */
+}
+
+
+/*Estilos menu Navegacion*/
+nav.contenedor-principal {
+    background-color: #0096c7;
+    margin-bottom: 20px; /* Separaci�n antes del <main> */
+}
+
+nav.contenedor-principal ul {
+    list-style-type: none; /* Quita las vi�etas (cubierto). */
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav.contenedor-principal li.enlace-nav {
+    display: inline-block; /* Muestra los enlaces en l�nea (cubierto). */
+}
+
+nav.contenedor-principal a {
+    text-decoration: none; /* Elimina el subrayado (cubierto). */
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    /* Pseudoclase :hover cubierta en el temario */
+    background-color: #0096c7;
+    transition: background-color 0.3s;
+}
+
+nav.contenedor-principal a:hover {
+    background-color: #00b4d8;
+}
+/*** body ****/
+body {
+    /* 1. Usar Flexbox para el control de la disposición principal */
+    display: flex;
+    /* 2. Disponer los hijos (header, nav, main, footer) en columna */
+    flex-direction: column;
+    /* 3. Asegurar que el body ocupe al menos el 100% del alto del viewport */
+    min-height: 100vh;
+    /* Eliminar márgenes por defecto del navegador */
+    margin: 0;
+}
+main.contenedor-principal {
+    /* Ocupa todo el espacio vertical disponible entre <nav> y <footer> */
+    flex-grow: 1;
+}
+
+
+/*/////////  Barra de Navegación Lateral  /////////*/
+
+/* Botón de menú */
+.boton_menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #00b4d8;
+    z-index: 1000;
+}
+
+/* Checkbox oculto */
+#boton_menu {
+    display: none;
+}
+
+/* Contenedor del menú lateral */
+.container-menu {
+    position: fixed;
+    background-color: #00b4d8;
+    width: 250px;
+    height: 100vh;
+    top: 0;
+    left: -250px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+#boton_menu:checked ~ .container-menu {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenido del menú */
+.cont-menu {
+    padding-top: 70px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cont-menu nav a {
+    display: block;
+    padding: 20px;
+    color: rgb(64, 129, 198);
+    text-decoration: none;
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.cont-menu nav a:hover {
+    background-color: #333;
+    border-left: 5px solid #f0f0f0;
+}
+
+.cont-menu label.icon-equis {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Icono del menú */
+.boton_menu label.icon-menu {
+    font-size: 40px;
+    cursor: pointer;
+    color: #5780d1;
+}
+
+/*///////// Fin de Barra de Navegación Lateral /////////*/
+
+
+/*Estilo pie de pagina*/
+footer {
+    background-color: #0077b6;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    border-top: 5px solid #00b4d8;
+    margin-top: 30px; /* Separaci�n despu�s del <main> */
+    /* clear: both es esencial si <main> contiene floats que no se limpiaron. */
+    clear: both;
+}
+
+.destacado {
+    font-weight: bold; /* Estilo de texto cubierto. */
+}
+
