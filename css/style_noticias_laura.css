@@ -44,3 +44,36 @@
 
 
 
+/* Contenedor de botones */
+#filtros-noticias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;       /* Para que se adapten en pantallas pequeñas */
+  gap: 20px;             /* Espacio entre botones */
+  margin: 25px 0;
+}
+
+/* Estilo de los botones */
+.btn-filtro {
+  background-color: #0077b6;   /* Azul principal */
+  color: white;
+  padding: 14px 28px;          /* Botón grande */
+  border: none;
+  border-radius: 12px;         /* Bordes suaves */
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, 
+              transform 0.15s ease;
+}
+
+/* Hover: color más claro + efecto zoom */
+.btn-filtro:hover {
+  background-color: #0096c7;
+  transform: scale(1.05);
+}
+
+/* Estado de click */
+.btn-filtro:active {
+  background-color: #00b4d8;
+  transform: scale(0.97);
+}

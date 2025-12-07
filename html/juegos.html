@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Vida Submarina</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Estilos generales del sitio web -->
-    <!-- Añade aqui los estilos específicos para tu página -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Para ancho completo, "1" no hay zoom-->
-    <!--Añade aqui tu js-->
-
-
+    <link rel="stylesheet" href="../css/style.css"> <!-- Estilos generales -->
+    <link rel="stylesheet" href="../css/style_juegos.css"> <!-- Estilos de juegos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
+    <!-- Header -->
     <header class="contenedor-principal">
-        <h1 id="titulo-web">Vida submarina</h1>
+        <h1 id="titulo-web">Vida Submarina</h1>
     </header>
 
     <!-- Barra de Navegación Lateral --> 
     <div class="boton_menu">
-        <label for="boton_menu" class="icon-menu">☰</label> <!-- Icono de menú -->
+        <label for="boton_menu" class="icon-menu">☰</label>
     </div>   
     <input type="checkbox" id="boton_menu">
 
@@ -30,48 +28,51 @@
                 <a href="./juegos.html">Juegos</a>
                 <a href="./contacto.html">Contacto</a>
             </nav>
-            <label for="boton_menu" class="icon-equis">×</label> <!-- Icono para cerrar -->
+            <label for="boton_menu" class="icon-equis">×</label>
         </div>
     </div>
 
-
+    <!-- Main -->
     <main class="contenedor-principal">
-        <!--Crea aqui tu pagina-->
-        <section class="juegos">
-            <h2> ¡Diviértete y Gana puntos con todos los juegos! </h2>
-            <div class="juegos" id="3enRaya">
-                <div class="cabecera-juegos">
-                    <h4>3 en Raya</h4>
-                    <img src="../img/icono-3enRaya.jpg" alt="Icono juego 3 en raya" />
-                </div>
-                <div class="texto-juegos">
-                    <p> </p>
-                </div>
-            </div>
-            <div class="juegos" id="Clasifica">
-                <div class="cabecera-juegos">
-                    <h4> ¿Correcto o Incorrecto?</h4>
-                    <img src="../img/icono-clasificacion.png" alt="Icono juego ¿Correcto o Incorrecto?" />
-                </div>
-                <div class="texto-juegos">
-                    <p> </p>
-                </div>
-            </div>
-            <div class="juegos" id="Quiz">
-                <div class="cabecera-juegos">
-                    <h4> El Pequeño Quiz de Conocimiento</h4>
-                    <img src="../img/icono-quiz.png" alt="Quiz" />
-                </div>
-                <div class="texto-juegos">
-                    <p>Un desafío rápido para tu mente. Quix es un pequeño quiz diseñado para evaluar o refrescar tus conocimientos adquiridos o los que ya posees. ¡Responde correctamente a las preguntas y comprueba qué tanto sabes!</p>
-                </div>
+        <section class="juegos-section">
+            <h2 class="titulo-juegos">
+                ¡Diviértete y gana puntos con todos los juegos!
+            </h2>
+            <div class="lista-juegos">
+                <!-- Tarjeta 1 -->
+                <a href="correcto_incorrecto.html" class="link-juego">
+                    <div class="juego-card">
+                        <img src="../img/icono-clasificacion.png" alt="Correcto o Incorrecto">
+                        <h3>Correcto o Incorrecto</h3>
+                        <p>¿Puedes decidir si los datos sobre el océano son verdaderos o falsos?</p>
+                    </div>
+                </a>
+                <!-- Tarjeta 2 -->
+                <a href="quiz.html" class="link-juego">
+                    <div class="juego-card">
+                        <img src="../img/icono-quiz.png" alt="Quiz conocimientos">
+                        <h3>El pequeño Quiz</h3>
+                        <p>Un quiz sencillo y divertido para poner a prueba lo que sabes.</p>
+                    </div>
+                </a>
+                <!-- Tarjeta 3 -->
+                <a href="3enraya.html" class="link-juego">
+                    <div class="juego-card">
+                        <img src="../img/icono-3enRaya.jpg" alt="3 en raya">
+                        <h3>3 en Raya</h3>
+                        <p>El clásico juego de siempre, ahora versión submarina.</p>
+                    </div>
+                </a>
             </div>
         </section>
     </main>
 
+    <script src="../js/subir.js"></script>
     <footer class="contenedor-principal">
         <p>&copy; Trabajo Tecnologias Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria, Laura Garcia y Julia Jimenez</span></p>
+        <button id="btn-subir">↑ Subir</button>
     </footer>
 
 </body>
 </html>
+
