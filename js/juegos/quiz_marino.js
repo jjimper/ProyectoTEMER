@@ -192,4 +192,34 @@ function mostrarPantallaFinal() {
             mensaje.textContent = "Sigue aprendiendo. ¡El océano te necesita! 🐙";
         }
     }
+
+    guardarPuntuacionEnServidor();
+}
+
+function guardarPuntuacionEnServidor() {
+    // Pedimos el nombre al usuario
+    const nombreUsuario = prompt("¡Quiz terminado! Escribe tu nombre para guardar la nota:");
+    
+    if (!nombreUsuario) return;
+
+    // Enviamos los datos al servidor
+    fetch('/api/guardar-puntuacion', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nombre: nombreUsuario,
+            puntos: puntuacion,
+            juego: "Quiz Marino"
+        })
+    })
+    .then(respuesta => respuesta.json())
+    .then(data => {
+        alert("✅ " + data.mensaje);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("Hubo un error al conectar con el servidor.");
+    });
 }
