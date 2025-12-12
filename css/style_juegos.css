@@ -214,7 +214,7 @@ h2 {
 }
 
 .juegos img {
-    width: 50%;
+    width: 60%;
     text-align: center;
 }
 
@@ -326,6 +326,15 @@ h2 {
 /* Colores para diferenciar X y O */
 .celda.x { color: var(--color-primary); }
 .celda.o { color: var(--color-accent); }
+
+.celda img {
+    width: 75%;  /* Ocupa el 75% de la celda para dejar un margen "aireado" */
+    height: 75%;
+    object-fit: contain; /* Mantiene la proporción de la imagen */
+    pointer-events: none; /* Evita que la imagen interfiera con el clic en la celda */
+    display: block; /* Ayuda al centrado */
+    margin: auto; /* Centrado automático si el contenedor es flex */
+}
 
 /* Mensaje de estado (Ganaste/Perdiste) */
 #mensaje-estado {
