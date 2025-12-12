@@ -227,27 +227,80 @@ function finalizarPartida(ganador, combinacion) {
 ========================================================================== */
 function movimientoIA() {
     if (!juegoActivo) return;
-
-    let celdasDisponibles = [];
     
-    tablero.forEach((valor, indice) => {
-        if (valor === "") {
-            celdasDisponibles.push(indice);
+    const dificultadSelect = document.getElementById('dificultad');
+    const nivel = dificultadSelect ? dificultadSelect.value : 'medio';
+
+    let indiceElegido;
+
+    if (nivel === 'facil') {
+        indiceElegido = obtenerMovimientoAleatorio(); //definir funcion
+    }
+    else if (nivel === 'medio') {
+        if (Math.random() > 0.4) {
+            indiceElegido = obtenerMejorMovimiento(); 
+        } else {
+            indiceElegido = obtenerMovimientoAleatorio();
         }
-    });
+    }
+    else {
+        indiceElegido = obtenerMejorMovimiento();
+    }
 
-    if (celdasDisponibles.length > 0) {
-        const indiceAleatorio = Math.floor(Math.random() * celdasDisponibles.length);
-        const casillaElegida = celdasDisponibles[indiceAleatorio];
-
-        const celdaDOM = document.querySelector(`.celda[data-index='${casillaElegida}']`);
-        
-        hacerMovimiento(celdaDOM, casillaElegida, jugadorIA);
+    if (indiceElegido === undefined) return;
+    
+    const celdaDOM = document.querySelector(`.celda[data-index='${indiceElegido}']`);
+    if (celdaDOM) {
+        hacerMovimiento(celdaDOM, indiceElegido, jugadorIA);
 
         if (!verificarEstadoJuego()) {
-           cambiarTurno();
-       }
+            cambiarTurno();
+        }
     }
+}
+
+// --- FUNCIONES AUXILIARES IA ---
+function obtenerMovimientoAleatorio() {
+
+    let celdasDisponibles = [];
+
+    tablero.forEach((valor, indice) => {
+        if (valor === "") celdasDisponibles.push(indice);
+    });
+
+    if (celdasDisponibles.length === 0) return undefined;
+
+    const random = Math.floor(Math.random() * celdasDisponibles.length);
+    return celdasDisponibles[random];
+}
+
+function obtenerMejorMovimiento() {
+    
+    //Movimiento ataque de IA
+    let movimiento = buscarJugadaCritica(jugadorIA);
+    if (movimiento !== null) return movimiento;
+
+    //Movimiento defensa contra humano
+    movimiento = buscarJugadaCritica(jugadorHumano);
+    if (movimiento !== null) return movimiento;
+
+    //Estrategia centro
+    if (tablero[4] === "") return 4;
+    
+    // Se evaluan todas las situaciones y si no hay ninguna peligrosa, coloca al azar
+    return obtenerMovimientoAleatorio();
+}
+
+function buscarJugadaCritica(jugadorObjetivo) {
+    for (let i = 0; i < condicionesVictoria.length; i++) {
+        const [a, b, c] = condicionesVictoria[i];
+        
+        //Posibles combinaciones ganadoras (X X null, X null X, null X X)
+        if (tablero[a] === jugadorObjetivo && tablero[b] === jugadorObjetivo && tablero[c] === "") return c;
+        if (tablero[a] === jugadorObjetivo && tablero[c] === jugadorObjetivo && tablero[b] === "") return b;
+        if (tablero[b] === jugadorObjetivo && tablero[c] === jugadorObjetivo && tablero[a] === "") return a;
+    }
+    return null;
 }
 
 /* ==========================================================================
@@ -307,10 +360,3 @@ document.addEventListener('DOMContentLoaded', () => {
         btnReiniciar.addEventListener("click", iniciarLogicaJuego);
     }
 });
-
-/***************************************************************************************** */
-/**
-  Author:       M.Ripoll
-  Date:         Dec.25
-  Description:  Lógica para Quiz.
-**/
