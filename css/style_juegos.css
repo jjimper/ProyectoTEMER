@@ -18,14 +18,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-body {
-    margin: 0;
-    background-color: var(--bg-light);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
 }
 
@@ -344,11 +336,18 @@ h2 {
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: background-color 0.3s, transform 0.2s;
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
 }
 
 .celda:hover {
     background-color: #eaf6ff;
     transform: scale(1.02);
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+.celda.ocupada:hover, 
+body.juego-terminado .celda:hover {
+    cursor: not-allowed;
 }
 
 /* Colores para diferenciar X y O */
@@ -423,6 +422,15 @@ h2 {
     color: #005f99;
     border-color: #005f99;
 }
+
+.btn-primario:hover,
+.btn-secundario:hover,
+.btn-control:hover,
+.btn-ficha:hover,
+#dificultad:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
 
 #tablero-container {
     display: flex;
