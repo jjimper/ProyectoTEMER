@@ -52,7 +52,51 @@ body {
     min-height: 100vh;
     /* Eliminar márgenes por defecto del navegador */
     margin: 0;
+     cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+
+   
 }
+
+/* Cursor al pasar por encima de un botón/menú  */
+a:hover,
+button:hover,
+.icon-menu:hover,
+input[type="submit"]:hover,
+nav a:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+/* Cursor al hacer clic (active): */
+a:active,
+button:active,
+input[type="submit"]:active,
+nav a:active {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+} 
+
+
+
+ 
+/* Cursor pez globo en botones y menú */
+/*
+.icon-menu:hover,
+.icon-equis:hover,
+#btn-subir:hover {
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, pointer;
+}*/
+
+/* Cuando se hace clic */
+/*
+.icon-menu:active,
+.icon-equis:active,
+#btn-subir:active {
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, pointer;
+} */
+
+
+
+
+
 main.contenedor-principal {
     /* Ocupa todo el espacio vertical disponible entre <nav> y <footer> */
     flex-grow: 1;
@@ -116,7 +160,7 @@ main.contenedor-principal {
 }
 
 .cont-menu nav a:hover {
-    background-color: #333;
+    background-color: #d7f3f8;
     border-left: 5px solid #f0f0f0;
 }
 
@@ -151,7 +195,52 @@ footer {
     clear: both;
 }
 
+/*Botón de sbubir arriba del todo*/
+#btn-subir {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: none; /* Se oculta al inicio */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+#btn-subir:hover {
+    background-color: #0096c7;
+    transform: scale(1.05);
+}
+
+
 .destacado {
     font-weight: bold; /* Estilo de texto cubierto. */
 }
 
+/* Cursor personalizado para menú y botón subir (sobrescribe pointer) */
+.boton_menu label.icon-menu,
+.cont-menu label.icon-equis,
+#btn-subir {
+    /* cursor por defecto (cuando no se está encima) */
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, auto;
+}
+
+/* Cuando pasas por encima (hover) mostramos el pez-globo */
+.boton_menu label.icon-menu:hover,
+.cont-menu label.icon-equis:hover,
+#btn-subir:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+/* Al hacer clic (active) también usar pez-globo */
+.boton_menu label.icon-menu:active,
+.cont-menu label.icon-equis:active,
+#btn-subir:active {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}

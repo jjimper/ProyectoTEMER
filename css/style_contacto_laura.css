@@ -81,11 +81,18 @@ body {
 
 .hero {
     width: 100%;
-    padding: 100px 20px;
+    height: 100vh; /* ← NUEVO: ocupa toda la pantalla */
+    padding: 0 20px;
+    display: flex; /* centrado vertical */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+
     background: linear-gradient(135deg, #0077b6, #023e8a);
     color: white;
 }
+
 
 .hero-content h1 {
     font-size: 48px;
