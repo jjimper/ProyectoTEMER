@@ -49,7 +49,7 @@
                         <div class="contenido-tarjeta">
                             <h3>3 en Raya</h3>
                             <p>El clásico juego de estrategia. ¡Consigue alinear tres figuras antes que la IA!</p>
-                            <button class="btn-jugar" onclick="abrirJuego('3enRaya')">Jugar Ahora</button>
+                            <button class="btn-jugar" onclick="abrirJuego('3enRaya')">Jugar ahora</button>
                         </div>
                     </div> 
 
@@ -60,7 +60,7 @@
                         <div class="contenido-tarjeta">
                             <h3>Quiz Marino</h3>
                             <p>¿Cuánto sabes sobre el océano? Pon a prueba tus conocimientos.</p>
-                            <button class="btn-jugar" style="background-color: grey; cursor: default;">Próximamente</button>
+                            <button class="btn-jugar" onclick="abrirJuego('Quiz')">Jugar ahora</button>
                         </div>
                     </div> 
                 </div> 
@@ -115,15 +115,42 @@
                 </div>
             </div>
 
+            <div id="contenedor-juego-Quiz" class="oculto">
+                <div class="juegos" id="Quiz">
+                    
+                    <div id="intro-quiz" class="cabecera-juegos">
+                        <h2 class="titulo-quiz">Quiz Marino</h2>
+                        <img src="../img/quiz_marino.png" alt="Imagen Quiz" style="max-width: 400px; margin: 20px auto; display: block;">
+                        
+                        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px;">
+                            ¡Demuestra cuánto sabes sobre el océano! <br>
+                            Responde correctamente para estar entre los mejores.
+                        </p>
+            
+                        <div class="contenedor-controles">
+                            <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
+                            <button class="btn-control btn-comenzar" onclick="iniciarQuizUI()">Iniciar Quiz</button>
+                        </div>
+                    </div>
+            
+                    <div id="juego-quiz" class="oculto" style="text-align: center;">
+                        <h3>Espacio para la pregunta...</h3>
+                    </div>
+            
+                </div>
+            </div>
+
         </section>
     </main>
 
     <script src="../js/subir.js"></script>
     <footer class="contenedor-principal">
-        <p>&copy; Trabajo Tecnologias Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria, Laura Garcia y Julia Jimenez</span></p>
+        <p>&copy; Trabajo Tecnologias Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria Moreno, Laura Garcia y Julia Jimenez</span></p>
     </footer>
 
+    <script src="../js/juegos/funcionalidad_UI_common.js"></script>
     <script src="../js/juegos/tres_en_raya_logic.js"></script>
+    <script src="../js/juegos/quiz_marino.js"></script>
     
     <script>
         function iniciarPartidaUI() {
