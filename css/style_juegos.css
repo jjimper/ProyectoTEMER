@@ -20,6 +20,33 @@ body {
     min-height: 100vh;
 }
 
+body {
+    margin: 0;
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+}
+
+/* Cursor al pasar por encima de un botón/menú  */
+a:hover,
+button:hover,
+.icon-menu:hover,
+input[type="submit"]:hover,
+nav a:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+/* Cursor al hacer clic (active): */
+a:active,
+button:active,
+input[type="submit"]:active,
+nav a:active {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+} 
+
+
 /* =========================================
    2. HEADER & MENÚ
    ========================================= */
