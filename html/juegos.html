@@ -70,7 +70,7 @@
                 <div class="juegos" id="3enRaya">
                     
                     <div id="intro-juego" class="cabecera-juegos">
-                        <h2 class="titulo-bonito">Tres en Raya</h2>
+                        <h2 class="titulo-tresEnRaya">Tres en raya</h2>
                         <img src="../img/icono_3raya.png" alt="Icono juego 3 en raya" />
                         
                         <div class="contenedor-controles">
@@ -82,13 +82,16 @@
                                 <option value="dificil">Dificultad: Imposible</option>
                             </select>
 
-                            <button class="btn-control btn-comenzar" onclick="abrirJuego()">Comenzar Juego</button>
+                            <button class="btn-control btn-comenzar" onclick="iniciarPartidaUI()">Comenzar Juego</button>
                         </div>
                     </div>
                     
                     <div id="tablero-container" class="oculto">
+                        
                         <div id="turno">Turno del jugador: <span id="jugador-actual">X</span></div>
-                        <div id="tablero">
+                        <h3 id="mensaje-estado" class="oculto"></h3>
+
+                        <div id="tablero" class="tablero-estilo">
                             <div class="celda" data-index="0"></div>
                             <div class="celda" data-index="1"></div>
                             <div class="celda" data-index="2"></div>
@@ -99,9 +102,12 @@
                             <div class="celda" data-index="7"></div>
                             <div class="celda" data-index="8"></div>
                         </div>
+
                         <div id="resultado"></div>
+                        
                         <button id="reiniciar" class="btn-primario" style="margin-top: 15px;">Reiniciar Partida</button>
                         <button class="btn-secundario" onclick="volverGaleria()" style="margin-top: 10px; font-size: 0.8rem; padding: 5px 15px;">Salir al menú</button>
+                    
                     </div>
 
                 </div>
@@ -115,6 +121,13 @@
     </footer>
 
     <script src="../js/logica_juegos.js"></script>
+    
+    <script>
+        function iniciarPartidaUI() {
+            document.getElementById('intro-juego').classList.add('oculto');
+            document.getElementById('tablero-container').classList.remove('oculto');
+        }
+    </script>
 
 </body>
 </html>

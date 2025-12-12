@@ -218,7 +218,9 @@ h2 {
     text-align: center;
 }
 
-
+/* =========================================
+   TRES EN RAYA
+   ========================================= */
 /* Botones volver y comenzar juego 3 en raya*/
 .contenedor-controles {
     display: flex;
@@ -286,9 +288,100 @@ h2 {
     border-color: var(--color-accent);
 }
 
-/* Opcional: Estilo para las opciones internas */
 .control-input option {
     font-weight: normal;
+}
+
+/* Estilo del tablero */
+.tablero-estilo {
+    display: grid;
+    grid-template-columns: repeat(3, 150px); 
+    grid-template-rows: repeat(3, 150px);    
+    gap: 10px;                               
+    justify-content: center;              
+    margin: 20px auto;
+}
+
+/* Estilo de cada casilla individual */
+.celda {
+    background-color: white;
+    border: 2px solid var(--color-secondary);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;   
+    font-weight: bold;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.celda:hover {
+    background-color: #eaf6ff;
+    transform: scale(1.02);
+}
+
+/* Colores para diferenciar X y O */
+.celda.x { color: var(--color-primary); }
+.celda.o { color: var(--color-accent); }
+
+/* Mensaje de estado (Ganaste/Perdiste) */
+#mensaje-estado {
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+
+/* Botones de juego */
+.btn-primario, .btn-secundario {
+    font-family: 'Arial', sans-serif; 
+    border-radius: 50px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-primario {
+    background-color: #0077be;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primario:hover {
+    background-color: #005f99; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: #0077be;
+    border: 2px solid #0077be;
+    font-weight: 600;
+}
+
+.btn-secundario:hover {
+    background-color: #e3f2fd;
+    color: #005f99;
+    border-color: #005f99;
+}
+
+#tablero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tablero-container button {
+    min-width: 200px; 
 }
 
 /* =========================================
