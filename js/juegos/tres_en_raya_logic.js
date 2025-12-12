@@ -23,7 +23,6 @@ const condicionesVictoria = [
 /* ==========================================================================
    SECCIÓN 1: NAVEGACIÓN
 ========================================================================== */
-// Se ejecuta al pulsar "Comenzar Juego" dentro de la intro del 3 en Raya
 function iniciarPartidaUI() {
     
     const intro = document.getElementById('intro-juego');
