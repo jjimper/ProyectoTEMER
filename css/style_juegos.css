@@ -1,62 +1,221 @@
-/* --- 1. Contenedor Principal: Ocupar 100% --- */
-section.juegos {
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --color-primary: #0077b6;
+    --color-secondary: #0096c7;
+    --color-accent: #00b4d8;
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --width-sidebar: 250px;
+    --transition-speed: 0.3s;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2. HEADER & MENÚ
+   ========================================= */
+header.contenedor-principal {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 20px 0;
+    text-align: center;
+}
+
+#titulo-web {
+    margin: 0;
+    font-size: 2.5rem; 
+}
+
+/* =========================================
+   3. MENÚ DE NAVEGACIÓN PRINCIPAL
+   ========================================= */
+nav.contenedor-principal {
+    background-color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   4. BARRA LATERAL
+   ========================================= */
+
+/* Botón de apertura */
+.boton_menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: var(--color-accent);
+    z-index: 1000;
+}
+#boton_menu { display: none;}
+
+/* Contenedor del menú */
+.container-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--width-sidebar);
+    height: 100vh;
+    background-color: var(--color-accent);
+    z-index: 999;
+    
+    transform: translateX(-100%); 
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition-speed) ease, opacity var(--transition-speed);
+}
+
+/* Estado activo  */
+#boton_menu:checked ~ .container-menu {
+    transform: translateX(0%);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenido interno */
+.cont-menu {
+    padding-top: 70px;
     width: 100%;
-    /* Limpiamos cualquier flotante que venga de los .juegos (tarjetas) */
-    overflow: hidden;
+}
+
+.cont-menu nav a {
+    display: block;
     padding: 20px;
-    background-color: #f4f4f9;
-    text-align: center;
+    color: rgb(64, 129, 198);
+    text-decoration: none;
+    border-left: 5px solid transparent;
+    transition: all var(--transition-speed) ease;
+    font-size: 18px;
 }
 
-/* --- 2. Contenedores de Juego: Disposici�n Vertical (Columna) --- */
-div.juegos {
-    /* [REGLA CLAVE VERTICAL] Los divs son block por defecto, forzamos 100% de ancho */
-    display: block;
-    width: 100%;
-    /* Separaci�n entre las tarjetas (Modelo de Caja) */
-    margin: 10px 0;
-    /* Para contener los elementos flotantes internos (cabecera y texto-juegos) */
-    overflow: hidden;
-    /* Estilos visuales de la tarjeta */
-    border: 1px solid #ccc;
-    padding: 15px;
-    box-sizing: border-box;
+.cont-menu nav a:hover {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    border-left: 5px solid #f0f0f0;
+}
+
+/* Botón cerrar (X) */
+.cont-menu label.icon-equis {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: var(--color-text-light);
+    cursor: pointer;
+}
+/* =========================================
+   5. GALERIA JUEGOS
+   ========================================= */
+.seccion-juegos {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+/* Contenedor Flex para poner las tarjetas una al lado de la otra */
+.galeria-juegos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px; 
+    margin-top: 20px;
+}
+
+/* Tarjetas de juegos */
+.tarjeta-juego {
     background-color: white;
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e1e1e1;
+} 
+.tarjeta-juego:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 25px rgba(0,119,182, 0.2); 
 }
 
-/* --- 3. Contenido Interno: Horizontal (Cabecera y Texto) --- */
+.imagen-tarjeta {
+    width: 100%;
+    height: 200px;  
+    padding: 0; 
+    overflow: hidden; 
+    background-color: #eaf6ff;
+}
 
-.cabecera-juegos {
-    /* [REGLA CLAVE HORIZONTAL] Flota a la izquierda para ir al lado del texto-juegos */
-    float: left;
-    /* Ocupa aproximadamente la mitad del espacio de la tarjeta */
-    width: 30%;
-    padding-right: 15px;
-    margin-right: 15px;
-    border-right: 1px dashed #ddd;
-    box-sizing: border-box;
+.imagen-tarjeta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;  
+}
+
+.contenido-tarjeta {
+    padding: 20px;
     text-align: center;
 }
 
-.texto-juegos {
-    /* Ocupa el espacio restante junto a .cabecera-juegos */
-    float: left;
-    width: 65%;
-    box-sizing: border-box;
-    text-align: justify;
+.contenido-tarjeta h3 {
+    margin: 0 0 10px 0;
+    color: var(--color-secondary);
 }
 
-/* --- 4. H4 e Imagen: Vertical dentro de Cabecera --- */
-
-.cabecera-juegos h4 {
-    /* Es H4, es display: block y se apila por defecto */
-    margin-bottom: 5px;
+.contenido-tarjeta p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
 
-.cabecera-juegos img {
-    /* Forzamos a block (vertical) y la centramos */
-    display: block;
-    margin: 0 auto 10px auto;
-    max-width: 100%;
-    height: auto;
+/* Botón de jugar */
+.btn-jugar {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
 }
+
+.btn-jugar:hover {
+    background-color: var(--color-accent);
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 15px 0;
+    text-align: center;
+    border-top: 5px solid var(--color-accent);
+    margin-top: auto;
+}
+
+/* Clases utilitarias */
+.destacado {
+    font-weight: bold;
+}
+
+
