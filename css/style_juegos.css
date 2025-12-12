@@ -1,3 +1,4 @@
+
 /* =========================================
    1. VARIABLES & RESET
    ========================================= */
@@ -200,6 +201,95 @@ h2 {
 .btn-jugar:hover {
     background-color: var(--color-accent);
 }
+/* =========================================
+   6. JUEGOS
+   ========================================= */
+.oculto {
+    display: none !important;
+}
+
+#contenedor-juego-3enRaya {
+    width: 100%;
+    text-align: center;
+}
+
+.juegos img {
+    width: 50%;
+    text-align: center;
+}
+
+
+/* Botones volver y comenzar juego 3 en raya*/
+.contenedor-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.btn-control {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; 
+    cursor: pointer;
+    color: var(--color-text-light);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s;
+}
+
+.btn-comenzar {
+    background-color: var(--color-primary); 
+}
+
+.btn-comenzar:hover {
+    background-color: var(--color-accent); 
+    transform: translateY(-2px);
+}
+
+.btn-volver {
+    background-color: #555555; 
+}
+
+.btn-volver:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+/* Selector de dificultad */
+.control-input {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 2px solid var(--color-secondary); /* Borde de color para destacar */
+    background-color: white;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    outline: none;
+    font-family: inherit;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    
+    height: 46px; 
+    box-sizing: border-box;
+}
+
+.control-input:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(0, 150, 199, 0.3);
+}
+
+.control-input:focus {
+    border-color: var(--color-accent);
+}
+
+/* Opcional: Estilo para las opciones internas */
+.control-input option {
+    font-weight: normal;
+}
 
 /* =========================================
    6. FOOTER
@@ -217,5 +307,3 @@ footer {
 .destacado {
     font-weight: bold;
 }
-
-

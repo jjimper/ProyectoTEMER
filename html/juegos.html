@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Vida Submarina - 3 en Raya</title>
-    <link rel="stylesheet" href="../css/style_juegos.css"> <style>
-    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vida Submarina - Zona de Juegos</title>
+    <link rel="stylesheet" href="../css/style_juegos.css"> 
 </head>
 <body>
 
@@ -31,43 +30,91 @@
     </div>
 
     <main class="contenedor-principal">
-        <section class="juegos">
-            <h2> ¡Diviértete con nuestros juegos interactivos! </h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.25rem;"> Selecciona una actividad para aprender y divertirte:</p>
+        <section class="seccion-juegos">
             
-            <div class="galeria-juegos">
-    
-                <div class="tarjeta-juego">
-                    <div class="imagen-tarjeta">
-                        <img src="../img/icono_3raya.png" alt="Icono 3 en Raya">
+            <div id="vista-seleccion">
+                
+                <h2>¡Diviértete con nuestros juegos interactivos!</h2>
+                <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem; color: black;">
+                    Selecciona una actividad para aprender y divertirte:
+                </p>
+                
+                <div id="galeria-juegos" class="galeria-juegos">
+                    <div class="tarjeta-juego">
+                        <div class="imagen-tarjeta">
+                            <img src="../img/icono_3raya.png" alt="Icono 3 en Raya">
+                        </div>
+                        <div class="contenido-tarjeta">
+                            <h3>3 en Raya</h3>
+                            <p>El clásico juego de estrategia. ¡Consigue alinear tres figuras antes que la IA!</p>
+                            <button class="btn-jugar" onclick="abrirJuego('3enRaya')">Jugar Ahora</button>
+                        </div>
+                    </div> 
+
+                    <div class="tarjeta-juego">
+                        <div class="imagen-tarjeta">
+                            <img src="../img/quiz_marino.png" alt="Icono Quiz">
+                        </div>
+                        <div class="contenido-tarjeta">
+                            <h3>Quiz Marino</h3>
+                            <p>¿Cuánto sabes sobre el océano? Pon a prueba tus conocimientos.</p>
+                            <button class="btn-jugar" style="background-color: grey; cursor: default;">Próximamente</button>
+                        </div>
+                    </div> 
+                </div> 
+
+            </div> 
+            
+            <div id="contenedor-juego-3enRaya" class="oculto">
+                
+                <div class="juegos" id="3enRaya">
+                    
+                    <div id="intro-juego" class="cabecera-juegos">
+                        <h2 class="titulo-bonito">Tres en Raya</h2>
+                        <img src="../img/icono_3raya.png" alt="Icono juego 3 en raya" />
+                        
+                        <div class="contenedor-controles">
+                            <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
+                            
+                            <select id="dificultad" class="control-input">
+                                <option value="facil">Dificultad: Fácil</option>
+                                <option value="medio" selected>Dificultad: Normal</option>
+                                <option value="dificil">Dificultad: Imposible</option>
+                            </select>
+
+                            <button class="btn-control btn-comenzar" onclick="abrirJuego()">Comenzar Juego</button>
+                        </div>
                     </div>
-                    <div class="contenido-tarjeta">
-                        <h3>3 en Raya</h3>
-                        <p>El clásico juego de estrategia. ¡Consigue alinear tres figuras antes que la IA!</p>
-                        <button class="btn-jugar">Jugar ahora</button>
+                    
+                    <div id="tablero-container" class="oculto">
+                        <div id="turno">Turno del jugador: <span id="jugador-actual">X</span></div>
+                        <div id="tablero">
+                            <div class="celda" data-index="0"></div>
+                            <div class="celda" data-index="1"></div>
+                            <div class="celda" data-index="2"></div>
+                            <div class="celda" data-index="3"></div>
+                            <div class="celda" data-index="4"></div>
+                            <div class="celda" data-index="5"></div>
+                            <div class="celda" data-index="6"></div>
+                            <div class="celda" data-index="7"></div>
+                            <div class="celda" data-index="8"></div>
+                        </div>
+                        <div id="resultado"></div>
+                        <button id="reiniciar" class="btn-primario" style="margin-top: 15px;">Reiniciar Partida</button>
+                        <button class="btn-secundario" onclick="volverGaleria()" style="margin-top: 10px; font-size: 0.8rem; padding: 5px 15px;">Salir al menú</button>
                     </div>
 
-                </div> <div class="tarjeta-juego">
-                    <div class="imagen-tarjeta">
-                        <img src="../img/quiz_marino.png" alt="Icono Quiz">
-                    </div>
-                    <div class="contenido-tarjeta">
-                        <h3>Quiz Marino</h3>
-                        <p>¿Cuánto sabes sobre el océano? Pon a prueba tus conocimientos.</p>
-                        <button class="btn-jugar">Próximamente</button>
-                    </div>
-                </div> </div>
-            
-            </section>
+                </div>
+            </div>
+
+        </section>
     </main>
 
     <footer class="contenedor-principal">
-        <p>&copy; Trabajo Tecnologias Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria Moreno, Laura Garcia y Julia Jimenez</span></p>
+        <p>&copy; Trabajo Tecnologías Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria Moreno, Laura Garcia y Julia Jimenez</span></p>
     </footer>
 
-    <script>
-        // Aquí iría tu lógica de JavaScript para el 3 en raya
-    </script>
+    <script src="../js/logica_juegos.js"></script>
 
 </body>
 </html>
