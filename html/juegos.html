@@ -2,76 +2,182 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Vida Submarina</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Estilos generales del sitio web -->
-    <!-- Añade aqui los estilos específicos para tu página -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Para ancho completo, "1" no hay zoom-->
-    <!--Añade aqui tu js-->
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vida Submarina - Zona de Juegos</title>
+    <link rel="stylesheet" href="../css/style_juegos.css"> 
 </head>
 <body>
 
+    <!-- Header -->
     <header class="contenedor-principal">
-        <h1 id="titulo-web">Vida submarina</h1>
+        <h1 id="titulo-web">Vida Submarina</h1>
     </header>
 
-    <!-- Barra de Navegación Lateral --> 
     <div class="boton_menu">
-        <label for="boton_menu" class="icon-menu">☰</label> <!-- Icono de menú -->
+        <label for="boton_menu" class="icon-menu">☰</label>
     </div>   
     <input type="checkbox" id="boton_menu">
 
     <div class="container-menu">
         <div class="cont-menu">
             <nav>
-                <a href="../index_julia.html">Inicio</a>
+                <a href="../main_index.html">Inicio</a>
                 <a href="./noticias.html">Noticias</a>
                 <a href="./juegos.html">Juegos</a>
                 <a href="./contacto.html">Contacto</a>
             </nav>
-            <label for="boton_menu" class="icon-equis">×</label> <!-- Icono para cerrar -->
+            <label for="boton_menu" class="icon-equis">×</label>
         </div>
     </div>
 
 
     <main class="contenedor-principal">
-        <!--Crea aqui tu pagina-->
-        <section class="juegos">
-            <h2> ¡Diviértete y Gana puntos con todos los juegos! </h2>
-            <div class="juegos" id="3enRaya">
-                <div class="cabecera-juegos">
-                    <h4>3 en Raya</h4>
-                    <img src="../img/icono-3enRaya.jpg" alt="Icono juego 3 en raya" />
-                </div>
-                <div class="texto-juegos">
-                    <p> </p>
+        <section class="seccion-juegos">
+            
+            <div id="vista-seleccion">
+                
+                <h2>¡Diviértete con nuestros juegos interactivos!</h2>
+                <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem; color: black;">
+                    Selecciona una actividad para aprender y divertirte:
+                </p>
+                
+                <div id="galeria-juegos" class="galeria-juegos">
+                    <div class="tarjeta-juego">
+                        <div class="imagen-tarjeta">
+                            <img src="../img/icono_3raya.png" alt="Icono 3 en Raya">
+                        </div>
+                        <div class="contenido-tarjeta">
+                            <h3>3 en Raya</h3>
+                            <p>El clásico juego de estrategia. ¡Consigue alinear tres figuras antes que la IA!</p>
+                            <button class="btn-jugar" onclick="abrirJuego('3enRaya')">Jugar ahora</button>
+                        </div>
+                    </div> 
+
+                    <div class="tarjeta-juego">
+                        <div class="imagen-tarjeta">
+                            <img src="../img/quiz_marino.png" alt="Icono Quiz">
+                        </div>
+                        <div class="contenido-tarjeta">
+                            <h3>Quiz Marino</h3>
+                            <p>¿Cuánto sabes sobre el océano? Pon a prueba tus conocimientos.</p>
+                            <button class="btn-jugar" onclick="abrirJuego('Quiz')">Jugar ahora</button>
+                        </div>
+                    </div> 
+                </div> 
+
+            </div> 
+            
+            <div id="contenedor-juego-3enRaya" class="oculto">
+                
+                <div class="juegos" id="3enRaya">
+                    
+                    <div id="intro-juego" class="cabecera-juegos">
+                        <h2 class="titulo-tresEnRaya">Tres en raya</h2>
+                        <img src="../img/icono_3raya.png" alt="Icono juego 3 en raya" />
+                        
+                        <div class="contenedor-controles">
+                            <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
+                            
+                            <select id="dificultad" class="control-input">
+                                <option value="facil">Dificultad: Fácil</option>
+                                <option value="medio" selected>Dificultad: Normal</option>
+                                <option value="dificil">Dificultad: Difícil</option>
+                            </select>
+
+                            <button class="btn-control btn-comenzar" onclick="iniciarPartidaUI()">Comenzar Juego</button>
+                        </div>
+                    </div>
+                    
+                    <div id="tablero-container" class="oculto">
+                        
+                        <div id="turno">Turno del jugador: <span id="jugador-actual">X</span></div>
+                        <h3 id="mensaje-estado" class="oculto"></h3>
+
+                        <div id="tablero" class="tablero-estilo">
+                            <div class="celda" data-index="0"></div>
+                            <div class="celda" data-index="1"></div>
+                            <div class="celda" data-index="2"></div>
+                            <div class="celda" data-index="3"></div>
+                            <div class="celda" data-index="4"></div>
+                            <div class="celda" data-index="5"></div>
+                            <div class="celda" data-index="6"></div>
+                            <div class="celda" data-index="7"></div>
+                            <div class="celda" data-index="8"></div>
+                        </div>
+
+                        <div id="resultado"></div>
+                        
+                        <button id="reiniciar" class="btn-primario" style="margin-top: 15px;">Reiniciar Partida</button>
+                        <button class="btn-secundario" onclick="volverGaleria()" style="margin-top: 10px; font-size: 0.8rem; padding: 5px 15px;">Salir al menú</button>
+                    
+                    </div>
+
                 </div>
             </div>
-            <div class="juegos" id="Clasifica">
-                <div class="cabecera-juegos">
-                    <h4> ¿Correcto o Incorrecto?</h4>
-                    <img src="../img/icono-clasificacion.png" alt="Icono juego ¿Correcto o Incorrecto?" />
-                </div>
-                <div class="texto-juegos">
-                    <p> </p>
+
+            <div id="contenedor-juego-Quiz" class="oculto">
+                <div class="juegos" id="Quiz">
+                    
+                    <div id="intro-quiz" class="cabecera-juegos">
+                        <h2 class="titulo-quiz">Quiz Marino</h2>
+                        <img src="../img/quiz_marino.png" alt="Imagen Quiz" style="max-width: 400px; margin: 20px auto; display: block;">
+                        
+                        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px;">
+                            ¡Demuestra cuánto sabes sobre el océano! <br>
+                            Responde correctamente para estar entre los mejores.
+                        </p>
+            
+                        <div class="contenedor-controles">
+                            <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
+                            <button class="btn-control btn-comenzar" onclick="iniciarQuizUI()">Iniciar Quiz</button>
+                        </div>
+                    </div>
+            
+                    <div id="juego-quiz" class="oculto" style="text-align: center;">
+
+                        <p id="contador-preguntas" style="color: #666; margin-bottom: 10px;"></p>
+                        <img src="../img/cabecera_quiz.png" alt="Cabecera Quiz Marino" class="img-cabecera-quiz">
+                        <h3 id="texto-pregunta" class="titulo-pregunta"></h3>
+                    
+                        <div id="contenedor-opciones" class="opciones-container"> </div>
+                    
+                        <div class="footer-controles">
+                            <button class="btn-salir-juego" onclick="volverGaleria()">Salir</button>
+                            <button id="btn-siguiente-pregunta" class="btn-primario oculto" onclick="siguientePregunta()">Siguiente ➡</button>
+                        </div>
+
+                        <div id="pantalla-final-quiz" class="oculto">
+                            <h2 style="color: #0077be;">¡Quiz Completado!</h2>
+                            <p style="font-size: 1.2rem;">Tu puntuación final es:</p>
+                            <div id="puntuacion-final" style="font-size: 3rem; font-weight: bold; color: #333;">0 / 0</div>
+                            <p id="mensaje-final"></p>
+                            
+                            <button class="btn-primario" onclick="iniciarQuizUI()">Jugar de Nuevo</button>
+                            <button class="btn-secundario" onclick="volverGaleria()">Salir</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="juegos" id="Quiz">
-                <div class="cabecera-juegos">
-                    <h4> El Pequeño Quiz de Conocimiento</h4>
-                    <img src="../img/icono-quiz.png" alt="Quiz" />
-                </div>
-                <div class="texto-juegos">
-                    <p>Un desafío rápido para tu mente. Quix es un pequeño quiz diseñado para evaluar o refrescar tus conocimientos adquiridos o los que ya posees. ¡Responde correctamente a las preguntas y comprueba qué tanto sabes!</p>
-                </div>
-            </div>
+
         </section>
     </main>
 
     <footer class="contenedor-principal">
-        <p>&copy; Trabajo Tecnologias Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria, Laura Garcia y Julia Jimenez</span></p>
+        <p>&copy; Trabajo Tecnologias Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria Moreno, Laura Garcia y Julia Jimenez</span></p>
     </footer>
+
+    <script src="../js/juegos/funcionalidad_UI_common.js"></script>
+    <script src="../js/juegos/tres_en_raya_logic.js"></script>
+    <script src="../js/juegos/quiz_marino.js"></script>
+    
+    <script>
+        function iniciarPartidaUI() {
+            document.getElementById('intro-juego').classList.add('oculto');
+            document.getElementById('tablero-container').classList.remove('oculto');
+            iniciarLogicaJuego();
+        }
+    </script>
 
 </body>
 </html>
+

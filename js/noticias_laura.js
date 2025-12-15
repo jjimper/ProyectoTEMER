@@ -10,14 +10,14 @@ async function obtenerNoticias(filtro) {
       query = "plástico OR plastic pollution OR contaminación";
       break;
     case "conservacion":
-      query = "conservación marina OR marine conservation";
+      query = "conservación marina océano mar";
       break;
     case "especies":
       query = "especies marinas OR sharks OR fishes";
       break;
     case "todas":
     default:
-      query = "oceano OR mar OR 'vida marina'";
+      query = "océano";
   }
 
   const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&lang=es&max=10&token=${API_KEY}`;

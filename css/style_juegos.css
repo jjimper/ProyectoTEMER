@@ -1,62 +1,653 @@
-/* --- 1. Contenedor Principal: Ocupar 100% --- */
-section.juegos {
+
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --color-primary: #0077b6;
+    --color-secondary: #0096c7;
+    --color-accent: #00b4d8;
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --width-sidebar: 250px;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+}
+
+/* Cursor al pasar por encima de un bot贸n/men煤  */
+a:hover,
+button:hover,
+.icon-menu:hover,
+input[type="submit"]:hover,
+nav a:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+/* Cursor al hacer clic (active): */
+a:active,
+button:active,
+input[type="submit"]:active,
+nav a:active {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+} 
+
+
+/* =========================================
+   2. HEADER & MEN脷
+   ========================================= */
+header.contenedor-principal {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 20px 0;
+    text-align: center;
+}
+
+#titulo-web {
+    margin: 0;
+    font-size: 2.5rem; 
+}
+
+/* =========================================
+   3. MEN脷 DE NAVEGACI脫N PRINCIPAL
+   ========================================= */
+nav.contenedor-principal {
+    background-color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   4. BARRA LATERAL
+   ========================================= */
+
+/* Bot贸n de apertura */
+.boton_menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: var(--color-accent);
+    z-index: 1000;
+}
+#boton_menu { display: none;}
+
+/* Contenedor del men煤 */
+.container-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--width-sidebar);
+    height: 100vh;
+    background-color: var(--color-accent);
+    z-index: 999;
+    
+    transform: translateX(-100%); 
+    opacity: 0;
+    visibility: hidden;
+    transition: transform var(--transition-speed) ease, opacity var(--transition-speed);
+}
+
+/* Estado activo  */
+#boton_menu:checked ~ .container-menu {
+    transform: translateX(0%);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenido interno */
+.cont-menu {
+    padding-top: 70px;
     width: 100%;
-    /* Limpiamos cualquier flotante que venga de los .juegos (tarjetas) */
-    overflow: hidden;
+}
+
+.cont-menu nav a {
+    display: block;
+    padding: 20px;
+    color: rgb(64, 129, 198);
+    text-decoration: none;
+    border-left: 5px solid transparent;
+    transition: all var(--transition-speed) ease;
+    font-size: 18px;
+}
+
+.cont-menu nav a:hover {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    border-left: 5px solid #f0f0f0;
+}
+
+/* Bot贸n cerrar (X) */
+.cont-menu label.icon-equis {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: var(--color-text-light);
+    cursor: pointer;
+}
+
+/* =========================================
+   5. GALERIA JUEGOS TRES EN RAYA
+   ========================================= */
+.seccion-juegos {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+/* Contenedor Flex para poner las tarjetas una al lado de la otra */
+.galeria-juegos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px; 
+    margin-top: 20px;
+}
+
+/* Tarjetas de juegos */
+.tarjeta-juego {
+    background-color: white;
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e1e1e1;
+} 
+.tarjeta-juego:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 25px rgba(0,119,182, 0.2); 
+}
+
+.imagen-tarjeta {
+    width: 100%;
+    height: 200px;  
+    padding: 0; 
+    overflow: hidden; 
+    background-color: #eaf6ff;
+}
+
+.imagen-tarjeta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;  
+}
+
+.contenido-tarjeta {
     padding: 20px;
     background-color: #f4f4f9;
     text-align: center;
 }
 
-/* --- 2. Contenedores de Juego: Disposici髇 Vertical (Columna) --- */
-div.juegos {
-    /* [REGLA CLAVE VERTICAL] Los divs son block por defecto, forzamos 100% de ancho */
-    display: block;
-    width: 100%;
-    /* Separaci髇 entre las tarjetas (Modelo de Caja) */
-    margin: 10px 0;
-    /* Para contener los elementos flotantes internos (cabecera y texto-juegos) */
-    overflow: hidden;
-    /* Estilos visuales de la tarjeta */
-    border: 1px solid #ccc;
-    padding: 15px;
-    box-sizing: border-box;
-    background-color: white;
+.contenido-tarjeta h3 {
+    margin: 0 0 10px 0;
+    color: var(--color-secondary);
 }
 
-/* --- 3. Contenido Interno: Horizontal (Cabecera y Texto) --- */
+.contenido-tarjeta p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
 
-.cabecera-juegos {
-    /* [REGLA CLAVE HORIZONTAL] Flota a la izquierda para ir al lado del texto-juegos */
-    float: left;
-    /* Ocupa aproximadamente la mitad del espacio de la tarjeta */
-    width: 30%;
-    padding-right: 15px;
-    margin-right: 15px;
-    border-right: 1px dashed #ddd;
-    box-sizing: border-box;
+/* Bot贸n de jugar */
+.btn-jugar {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.btn-jugar:hover {
+    background-color: var(--color-accent);
+}
+/* =========================================
+   6. JUEGOS
+   ========================================= */
+.oculto {
+    display: none !important;
+}
+
+#contenedor-juego-3enRaya {
+    width: 100%;
     text-align: center;
 }
 
-.texto-juegos {
-    /* Ocupa el espacio restante junto a .cabecera-juegos */
-    float: left;
-    width: 65%;
+.juegos img {
+    width: 60%;
+    text-align: center;
+}
+
+/* =========================================
+   TRES EN RAYA
+   ========================================= */
+/* Botones volver y comenzar juego 3 en raya*/
+.contenedor-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.btn-control {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; 
+    cursor: pointer;
+    color: var(--color-text-light);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s;
+}
+
+.btn-comenzar {
+    background-color: var(--color-primary); 
+}
+
+.btn-comenzar:hover {
+    background-color: var(--color-accent); 
+    transform: translateY(-2px);
+}
+
+.btn-volver {
+    background-color: #555555; 
+}
+
+.btn-volver:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+/* Selector de dificultad */
+.control-input {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 2px solid var(--color-secondary); /* Borde de color para destacar */
+    background-color: white;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    outline: none;
+    font-family: inherit;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    
+    height: 46px; 
     box-sizing: border-box;
-    text-align: justify;
 }
 
-/* --- 4. H4 e Imagen: Vertical dentro de Cabecera --- */
-
-.cabecera-juegos h4 {
-    /* Es H4, es display: block y se apila por defecto */
-    margin-bottom: 5px;
+.control-input:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(0, 150, 199, 0.3);
 }
 
-.cabecera-juegos img {
-    /* Forzamos a block (vertical) y la centramos */
-    display: block;
-    margin: 0 auto 10px auto;
-    max-width: 100%;
-    height: auto;
+.control-input:focus {
+    border-color: var(--color-accent);
+}
+
+.control-input option {
+    font-weight: normal;
+}
+
+/* Estilo del tablero */
+.tablero-estilo {
+    display: grid;
+    grid-template-columns: repeat(3, 150px); 
+    grid-template-rows: repeat(3, 150px);    
+    gap: 10px;                               
+    justify-content: center;              
+    margin: 20px auto;
+}
+
+/* Estilo de cada casilla individual */
+.celda {
+    background-color: white;
+    border: 2px solid var(--color-secondary);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;   
+    font-weight: bold;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+}
+
+.celda:hover {
+    background-color: #eaf6ff;
+    transform: scale(1.02);
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+.celda.ocupada:hover, 
+body.juego-terminado .celda:hover {
+    cursor: not-allowed;
+}
+
+/* Colores para diferenciar X y O */
+.celda.x { color: var(--color-primary); }
+.celda.o { color: var(--color-accent); }
+
+.celda img {
+    width: 75%;  
+    height: 75%;
+    object-fit: contain; 
+    pointer-events: none; 
+    display: block; 
+    margin: auto;
+}
+
+/* Mensaje de estado (Ganaste/Perdiste) */
+#mensaje-estado {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #0077be;
+    min-height: 1.4em; 
+}
+
+#mensaje-estado.oculto {
+    visibility: hidden; 
+}
+
+/* Resaltar las celdas ganadoras */
+.celda.ganadora {
+    background-color: #d4edda; 
+    box-shadow: inset 0 0 15px #28a745;
+    transition: all 0.3s ease;
+}
+
+/* Botones de juego */
+.btn-primario, .btn-secundario {
+    font-family: 'Arial', sans-serif; 
+    border-radius: 50px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-primario {
+    background-color: #0077be;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primario:hover {
+    background-color: #005f99; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: #0077be;
+    border: 2px solid #0077be;
+    font-weight: 600;
+}
+
+.btn-secundario:hover {
+    background-color: #e3f2fd;
+    color: #005f99;
+    border-color: #005f99;
+}
+
+.btn-primario:hover,
+.btn-secundario:hover,
+.btn-control:hover,
+.btn-ficha:hover,
+#dificultad:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+
+#tablero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tablero-container button {
+    min-width: 200px; 
+}
+
+/* =========================================
+   7. ANIMACION GLOBOS
+   ========================================= */
+   #contenedor-globos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* No intervienen con los botones */
+    z-index: -1; /* Detr谩s del tablero */
+    overflow: hidden;
+}
+
+/* Estilo base del globo */
+.globo {
+    position: absolute;
+    bottom: -100px; /* Empiezan por abajo */
+    width: 40px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%; /* Forma ovalada */
+    opacity: 0.8;
+    animation: flotarArriba linear forwards;
+}
+
+/* La cuerda del globo */
+.globo::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 2px;
+    height: 15px;
+    background-color: rgba(0,0,0,0.3);
+    transform: translateX(-50%);
+}
+
+/* La animaci贸n de subir */
+@keyframes flotarArriba {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(20deg);
+        opacity: 0; /* Se desvanecen arriba */
+    }
+}
+
+/* Colores variados para los globos */
+.globo.rojo { background-color: #ff5252; }
+.globo.azul { background-color: #448aff; }
+.globo.verde { background-color: #69f0ae; }
+.globo.amarillo { background-color: #ffd740; }
+.globo.naranja { background-color: #ffab40; }
+
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+footer {
+    background-color: #003c73;
+    color: var(--color-text-light);
+    padding: 1px 0;
+    text-align: center;
+    border-top: 5px solid var(--color-accent);
+    margin-top: auto;
+}
+
+/* Clases utilitarias */
+.destacado {
+    font-weight: bold;
+}
+
+
+/* =========================================
+   GALERIA JUEGOS QUIZ (PREGUNTAS Y OPCIONES)
+========================================= */
+#texto-pregunta {
+    font-size: 1.4rem;
+    color: #005f99; /* Azul oscuro */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 800px;
+}
+
+.img-cabecera-quiz {
+    display: block; 
+    margin: 10px auto 20px auto; 
+    max-width: 90%; 
+    height: auto; 
+    max-height: 250px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.opciones-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    width: 90%;
+}
+
+.btn-opcion {
+    background-color: white;
+    border: 2px solid #81d4fa; 
+    border-radius: 25px; 
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    color: #0277bd;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    box-shadow: 0 4px 0 #b3e5fc; 
+    position: relative;
+    top: 0;
+}
+
+.btn-opcion:hover {
+    background-color: #e1f5fe;
+    border-color: #0077be;
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 0 #81d4fa; 
+}
+
+/* ESTADOS DE RESPUESTA (Correcto / Incorrecto) */
+.btn-opcion.correcto {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724 !important;
+    box-shadow: 0 0 15px #28a745 !important; 
+    transform: scale(1.05);
+}
+
+.btn-opcion.incorrecto {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24 !important;
+    box-shadow: none !important;
+    animation: temblor 0.5s ease;
+}
+
+.btn-opcion.bloqueado {
+    cursor: default; 
+    pointer-events: none;
+}
+
+.btn-opcion.bloqueado:not(.correcto):not(.incorrecto) {
+    opacity: 0.6; 
+    background-color: #f1f1f1;
+    border-color: #ddd;
+    box-shadow: none;
+    color: #999;
+}
+
+.footer-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-salir-juego {
+    background-color: transparent;
+    border: 2px solid #ccc;
+    color: #777;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-salir-juego:hover {
+    border-color: #ef5350; 
+    color: #ef5350;
+    background-color: #ffebee;
+}
+/* animaci贸n temblor */
+@keyframes temblor {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px) rotate(-2deg); }
+    50% { transform: translateX(5px) rotate(2deg); }
+    75% { transform: translateX(-5px) rotate(-2deg); }
+    100% { transform: translateX(0); }
+}
+
+/* 6. Contador de preguntas */
+#contador-preguntas {
+    font-weight: bold;
+    color: #0077be;
+    background: white;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
