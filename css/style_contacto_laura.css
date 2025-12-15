@@ -1,98 +1,56 @@
-/* -------------------------
-   RESET GENERAL
--------------------------- */
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Paleta de colores basada en los valores originales */
+    --color-primary: #0077b6;      /* Usado en botones y gradiente */
+    --color-primary-dark: #003c73; /* Usado en footer y fondo menú */
+    --color-primary-darker: #023e8a;/* Usado en gradiente hero */
+    --color-primary-darkest: #003152;/* Usado en textos */
+    --color-secondary: #0096c7;    /* Usado en hover submit y focus inputs */
+    --color-accent: #00b4d8;       /* Usado en borde footer */
+    --color-light-blue: #90e0ef;   /* Usado en btn-hero */
+    --color-lighter-blue: #caf0f8; /* Usado en hover btn-hero */
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --bg-light: #f4f9ff;           /* Fondo general */
+    --bg-input: #f8fbff;           /* Fondo inputs */
+    --border-input: #d0e7ff;       /* Borde inputs */
+    
+    --transition-speed: 0.3s;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    background-color: #f4f9ff;
-    color: #003152;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--color-primary-darkest);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* -------------------------
-   MENÚ LATERAL
--------------------------- */
-/* 
-.boton_menu label {
-    font-size: 32px;
-    cursor: pointer;
-    padding: 10px 15px;
-    display: inline-block;
-    color: #003152;
-}
-
-#boton_menu {
-    display: none;
-}
-
-.container-menu {
-    position: fixed;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: -100%;
-    transition: all 0.4s ease;
-    z-index: 100;
-}
-
-.cont-menu {
-    width: 270px;
-    height: 100%;
-    background: #003c73;
-    padding: 40px 20px;
-}
-
-.cont-menu nav a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    padding: 10px 0;
-    font-size: 18px;
-    margin: 10px 0;
-    transition: 0.3s;
-}
-
-.cont-menu nav a:hover {
-    color: #77c9ff;
-    margin-left: 8px;
-}
-
-.icon-equis {
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    margin-top: 30px;
-    display: block;
-    text-align: right;
-}
-
-#boton_menu:checked ~ .container-menu {
-    left: 0;
-} */
-
-/* -------------------------
-   HERO SECTION
--------------------------- */
-
+/* =========================================
+   2. HERO SECTION
+   ========================================= */
 .hero {
     width: 100%;
-    height: 100vh; /* ← NUEVO: ocupa toda la pantalla */
+    height: 100vh; /* Ocupa toda la pantalla */
     padding: 0 20px;
-    display: flex; /* centrado vertical */
+    display: flex; /* Centrado vertical */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 
-    background: linear-gradient(135deg, #0077b6, #023e8a);
-    color: white;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-darker));
+    color: var(--color-text-light);
 }
-
 
 .hero-content h1 {
     font-size: 48px;
@@ -110,26 +68,25 @@ body {
 .btn-hero {
     display: inline-block;
     padding: 12px 25px;
-    background: #90e0ef;
-    color: #023e8a;
+    background: var(--color-light-blue);
+    color: var(--color-primary-darker);
     text-decoration: none;
     border-radius: 25px;
     font-weight: bold;
-    transition: 0.3s ease;
+    transition: var(--transition-speed) ease;
 }
 
 .btn-hero:hover {
-    background: #caf0f8;
+    background: var(--color-lighter-blue);
 }
 
-/* -------------------------
-   FORMULARIO
--------------------------- */
-
+/* =========================================
+   3. FORMULARIO
+   ========================================= */
 .contact-form {
     max-width: 700px;
     margin: 50px auto;
-    background: white;
+    background: var(--color-text-light); /* white */
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -138,7 +95,7 @@ body {
 .contact-form h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #003c73;
+    color: var(--color-primary-dark);
 }
 
 .form-group {
@@ -150,7 +107,7 @@ body {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
-    color: #003152;
+    color: var(--color-primary-darkest);
 }
 
 .form-group input,
@@ -158,9 +115,9 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 10px;
-    border: 2px solid #d0e7ff;
+    border: 2px solid var(--border-input);
     border-radius: 8px;
-    background: #f8fbff;
+    background: var(--bg-input);
     font-size: 15px;
     transition: 0.2s ease;
 }
@@ -168,44 +125,47 @@ body {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #0096c7;
+    border-color: var(--color-secondary);
     outline: none;
 }
 
 button[type="submit"] {
     width: 100%;
     padding: 12px;
-    background: #0077b6;
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-text-light);
     font-size: 18px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     margin-top: 10px;
-    transition: 0.3s ease;
+    transition: var(--transition-speed) ease;
 }
 
 button[type="submit"]:hover {
-    background: #0096c7;
+    background: var(--color-secondary);
 }
 
-/* -------------------------
-   FOOTER
--------------------------- */
-
+/* =========================================
+   4. FOOTER
+   ========================================= */
 footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: 16px 0;
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    background: #003c73;
-    color: white;
-    font-size: 14px;
+    border-top: 5px solid var(--color-accent);
+    margin-top: auto;
 }
 
-/* -------------------------
-   RESPONSIVE
--------------------------- */
+/* Clases utilitarias */
+.destacado {
+    font-weight: bold;
+}
 
+/* =========================================
+   5. RESPONSIVE
+   ========================================= */
 @media (max-width: 600px) {
     .hero-content h1 {
         font-size: 34px;
