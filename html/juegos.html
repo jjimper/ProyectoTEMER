@@ -74,6 +74,7 @@
                         <button class="btn-jugar" onclick="abrirJuego('Pecera')">Jugar ahora</button>
                         </div>
                      </div>
+
                 </div>
             </div> 
             
@@ -183,7 +184,7 @@
                         
                         <div class="contenedor-controles">
                             <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
-                            <button class="btn-control btn-comenzar" onclick="iniciarPeceraUI()">Comenzar misión</button>
+                            <button class="btn-control btn-comenzar" onclick="iniciarPeceraUI()">Comenzar Misión</button>
                         </div>
                     </div>
 
@@ -200,12 +201,24 @@
                             </div>
                         </div>
 
-                        <div id="zona-juego">
-                            </div>
+                        <div id="zona-juego"></div>
 
                         <div id="contenedor-reciclaje" class="cubo-reciclaje">
                             <div class="tapa-cubo"></div>
                             <span style="font-size: 2rem;">♻️</span>
+                        </div>
+
+                        <div id="overlay-start" class="overlay-juego">
+                            <div style="text-align: center;">
+                                <h2 style="color: white; font-size: 4rem; text-shadow: 4px 4px 0px #003c73; margin: 0 0 20px 0; line-height: 1;"> ¿Listo? </h2>
+                                <button class="btn-start-grande" onclick="arrancarMecanicasPecera()"> ¡Start! 🐠 </button>
+                            </div>
+                        </div>
+
+                        <div id="overlay-gameover" class="overlay-juego oculto">
+                            <h2 style="color: white;">¡Tiempo agotado!</h2>
+                            <p style="color: white; font-size: 1.5rem;">Puntuación final: <span id="puntuacion-final-pecera">0</span></p>
+                            <button class="btn-primario" onclick="reiniciarPecera()">Jugar de nuevo</button>
                         </div>
 
                         <button class="btn-salir-juego" onclick="volverGaleria()" style="position: absolute; top: 10px; right: 10px; z-index: 100;">Salir</button>

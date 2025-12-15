@@ -744,3 +744,79 @@ footer {
     z-index: 5;
     transition: transform 0.2s;
 }
+
+.elemento-pez {
+    position: absolute;
+    width: 80px;  
+    height: auto;
+    z-index: 20;  
+    pointer-events: none;
+}
+
+.overlay-juego {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 60, 115, 0.9); 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    text-align: center;
+    backdrop-filter: blur(5px); 
+}
+
+.btn-start-grande {
+    font-size: 2rem;          
+    padding: 15px 50px;        
+    background: linear-gradient(to bottom, #ffd700, #ffa500); 
+    color: #d35400;            
+    border: 4px solid white;   
+    border-radius: 50px;      
+    font-weight: 900;          
+    cursor: pointer;           /
+    
+    box-shadow: 0 8px 0 #c0392b, 0 15px 20px rgba(0,0,0,0.4);
+    
+    transition: all 0.1s;
+    animation: palpitar 1.5s infinite ease-in-out; /* Animación de latido */
+    text-transform: uppercase;
+}
+
+.btn-start-grande:hover {
+    background: linear-gradient(to bottom, #ffe066, #ffcc00); 
+    color: #e67e22;
+}
+
+
+/* Animación: Nadar de izquierda a derecha */
+@keyframes nadarDerecha {
+    from { left: -100px; transform: scaleX(-1);}
+    to { left: 110%;transform: scaleX(-1);} 
+}
+
+/* Animación: Nadar de derecha a izquierda */
+@keyframes nadarIzquierda {
+    from { right: -100px; transform: scaleX(1); } 
+    to { right: 110%; transform: scaleX(1); }
+}
+
+/* Animación de latido */
+@keyframes palpitar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.nadando-derecha {
+    animation: nadarDerecha linear forwards;
+}
+
+.nadando-izquierda {
+    animation: nadarIzquierda linear forwards;
+}
+
+
