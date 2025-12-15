@@ -73,10 +73,18 @@ nav.contenedor-principal {
     top: 20px;
     left: 20px;
     font-size: 40px;
-    cursor: pointer;
     color: var(--color-accent);
     z-index: 1000;
+    
+    /* CAMBIO: Usamos tu pez normal */
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
 }
+
+/* CAMBIO: Al pasar el ratón por las rayas, usamos el pez activo */
+.boton_menu:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
 #boton_menu { display: none;}
 
 /* Contenedor del menú */
@@ -100,6 +108,17 @@ nav.contenedor-principal {
     transform: translateX(0%);
     opacity: 1;
     visibility: visible;
+}
+
+.boton_menu label.icon-menu {
+    font-size: 40px;
+    cursor: pointer;
+    color: #5780d1;
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+}
+
+.cont-menu label.icon-menu:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
 }
 
 /* Contenido interno */
@@ -131,7 +150,11 @@ nav.contenedor-principal {
     right: 20px;
     font-size: 40px;
     color: var(--color-text-light);
-    cursor: pointer;
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+}
+
+.cont-menu label.icon-equis:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
 }
 
 /* =========================================
@@ -167,6 +190,8 @@ h2 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #e1e1e1;
+    display: flex;          
+    flex-direction: column;
 } 
 .tarjeta-juego:hover {
     transform: translateY(-10px); 
@@ -192,6 +217,10 @@ h2 {
     padding: 20px;
     background-color: #f4f4f9;
     text-align: center;
+    flex-grow: 1;            
+    display: flex;           
+    flex-direction: column;  
+    justify-content: space-between; 
 }
 
 .contenido-tarjeta h3 {
