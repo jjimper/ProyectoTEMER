@@ -53,6 +53,9 @@ function arrancarMecanicasPecera() {
         }
     }, 1000);
 
+    crearBasura(); 
+    intervaloBasura = setInterval(crearBasura, 1500);
+
     crearPez(); 
     intervaloPeces = setInterval(crearPez, 1000);
 }
@@ -94,6 +97,32 @@ function crearPez() {
     document.getElementById('zona-juego').appendChild(pez);
 }
 
+// 4. GENERADOR DE BASURA
+function crearBasura() {
+
+    const zona = document.getElementById('zona-juego');
+    const contenedor = document.getElementById('juego-pecera');
+    if (!zona || !contenedor) return;
+
+    const basura = document.createElement('div');
+    basura.classList.add('elemento-basura');
+    
+    const emoji = tiposBasura[Math.floor(Math.random() * tiposBasura.length)];
+    basura.textContent = emoji;
+
+    const x = Math.random() * (contenedor.offsetWidth - 50); 
+    basura.style.left = x + 'px';
+    basura.style.top = '-60px'; 
+    const duracionCaida = Math.random() * 4 + 4; 
+    
+    basura.style.animation = `caerBasura ${duracionCaida}s linear forwards`; //Movimiento del CSS
+
+    basura.addEventListener('animationend', function() {
+        basura.remove();
+    });
+
+    zona.appendChild(basura);
+}
 
 // 5. ACTUALIZAR TEXTOS
 function actualizarMarcadores() {
@@ -118,3 +147,7 @@ function finDelJuegoPecera() {
 function reiniciarPecera() {
     iniciarPeceraUI();
 }
+
+/* ==========================================================================
+   LÓGICA DE ARRASTRE (DRAG & DROP)
+   ========================================================================== */
