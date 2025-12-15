@@ -1,3 +1,8 @@
+/**
+  Author:       M.Moreno
+  Date:         Dec.25
+  Description:  Lógica pecera
+**/
 /* ==========================================================================
    LÓGICA DEL JUEGO: MISIÓN LIMPIEZA (PECERA)
    ========================================================================== */
@@ -7,6 +12,10 @@ let intervaloBasura;   // Controla la aparición de basura
 let intervaloPeces;    // Controla la aparición de peces
 let tiempoRestante = 30;
 let puntuacionLimpieza = 0;
+
+let elementoArrastrado = null;
+let offsetX = 0;
+let offsetY = 0;
 
 const tiposBasura = ["🥤", "🥡", "🥫", "🧴", "🛍️", "👟"];
 
@@ -205,29 +214,68 @@ function moverBasura(e) {
 function soltarBasura(e) {
     if (!elementoArrastrado) return;
 
-    elementoArrastrado.style.cursor = 'grab';
-    elementoArrastrado.style.zIndex = 30;
-    
-    const contenedor = document.getElementById('juego-pecera');
-    const alturaContenedor = contenedor.offsetHeight; 
-    
-    const actualY = parseInt(elementoArrastrado.style.top);
-    const destinoY = alturaContenedor + 60; //cae más del contenedor
+    const basuraRect = elementoArrastrado.getBoundingClientRect();
+    const cubo = document.getElementById('contenedor-reciclaje');
+    const cuboRect = cubo.getBoundingClientRect();
 
-    const distancia = destinoY - actualY;
-    const tiempoCaida = distancia / 100; 
+    // 1. COMPROBAR SI HA CAÍDO DENTRO DEL CUBO
+    const haEntrado = !(
+        basuraRect.right < cuboRect.left || 
+        basuraRect.left > cuboRect.right || 
+        basuraRect.bottom < cuboRect.top || 
+        basuraRect.top > cuboRect.bottom
+    );
 
-    elementoArrastrado.style.transition = `top ${tiempoCaida}s linear, transform ${tiempoCaida}s linear`;
-    const basuraQueCae = elementoArrastrado;
+    if (haEntrado) {
+        
+        puntuacionLimpieza += 1;
+        actualizarMarcadores();
 
-    requestAnimationFrame(() => {
-        basuraQueCae.style.top = destinoY + 'px';
-        basuraQueCae.style.transform = 'rotate(45deg)';
-    });
+        const zonaRect = document.getElementById('juego-pecera').getBoundingClientRect();
+        
+        const centroCuboX = (cuboRect.left - zonaRect.left) + (cuboRect.width / 2) - (basuraRect.width / 2);
+        const centroCuboY = (cuboRect.top - zonaRect.top) + (cuboRect.height / 2) - (basuraRect.height / 2);
 
-    basuraQueCae.addEventListener('transitionend', function() {
-        basuraQueCae.remove();
-    });
+        elementoArrastrado.style.transition = 'all 0.3s ease-out';
+        elementoArrastrado.style.left = centroCuboX + 'px';
+        elementoArrastrado.style.top = centroCuboY + 'px';
+        elementoArrastrado.style.transform = 'scale(0.1) rotate(180deg)';
+        elementoArrastrado.style.opacity = '0';
+
+
+        cubo.style.transform = 'scale(1.1)';
+        setTimeout(() => cubo.style.transform = 'scale(1)', 200);
+
+        const basuraParaBorrar = elementoArrastrado;
+        setTimeout(() => {
+            basuraParaBorrar.remove();
+        }, 300);
+
+    } else {
+      
+        
+        elementoArrastrado.style.cursor = 'grab';
+        elementoArrastrado.style.zIndex = 30;
+
+        const contenedor = document.getElementById('juego-pecera');
+        const alturaContenedor = contenedor.offsetHeight; 
+        const actualY = parseInt(elementoArrastrado.style.top);
+        const destinoY = alturaContenedor + 60; 
+        const distancia = destinoY - actualY;
+        const tiempoCaida = distancia / 200; 
+
+        elementoArrastrado.style.transition = `top ${tiempoCaida}s linear, transform ${tiempoCaida}s linear`;
+        
+        const basuraQueCae = elementoArrastrado;
+        requestAnimationFrame(() => {
+            basuraQueCae.style.top = destinoY + 'px';
+            basuraQueCae.style.transform = 'rotate(45deg)'; 
+        });
+
+        basuraQueCae.addEventListener('transitionend', function() {
+            basuraQueCae.remove();
+        });
+    }
 
     elementoArrastrado = null;
 }
