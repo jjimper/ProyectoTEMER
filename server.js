@@ -1,6 +1,8 @@
-/* ==========================================================================
-   SERVIDOR WEB + BASE DE DATOS SIMPLE (Node.js)
-   ========================================================================== */
+/**
+  Author:       M.Ripoll
+  Date:         Dec.25
+  Description:  Servidor Web
+**/
 
 const express = require('express');
 const path = require('path');
@@ -15,7 +17,7 @@ app.use(express.static(__dirname)); // Servir archivos estáticos desde la carpe
 
 app.get('/', (req, res) => {
     // Cargo html inicial
-    res.sendFile(path.join(__dirname, 'index_julia.html'));
+    res.sendFile(path.join(__dirname, 'main_index.html'));
 });
 
 // Mini base de datos para el Quiz de Vida Submarina
@@ -62,9 +64,9 @@ app.get('/api/ranking', (req, res) => {
 
 // Log para saber si el servidor está vivo
 app.listen(PORT, () => {
-    console.log(`\n🌊 VIDA SUBMARINA - SERVIDOR LISTO 🌊`);
+    console.log(`\nVIDA SUBMARINA - SERVIDOR LISTO `);
     console.log(`----------------------------------------`);
-    console.log(`✅ Web disponible en:    http://localhost:${PORT}`);
-    console.log(`📊 API Ranking lista en: http://localhost:${PORT}/api/ranking`);
+    console.log(`Web disponible en:    http://localhost:${PORT}`);
+    console.log(`API Ranking lista en: http://localhost:${PORT}/api/ranking`);
     console.log(`----------------------------------------`);
 });

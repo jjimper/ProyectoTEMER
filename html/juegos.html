@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vida Submarina - Zona de Juegos</title>
+    <title>Vida submarina - Zona de Juegos</title>
     <link rel="stylesheet" href="../css/style_juegos.css"> 
 </head>
 <body>
 
-    <!-- Header -->
     <header class="contenedor-principal">
-        <h1 id="titulo-web">Vida Submarina</h1>
+        <h1 id="titulo-web">Vida submarina</h1>
     </header>
-
+    
     <div class="boton_menu">
         <label for="boton_menu" class="icon-menu">☰</label>
     </div>   
@@ -21,12 +20,11 @@
     <div class="container-menu">
         <div class="cont-menu">
             <nav>
-                <a href="../index_julia.html">Inicio</a>
+                <a href="../main_index.html">Inicio</a>
                 <a href="./noticias.html">Noticias</a>
                 <a href="./juegos.html">Juegos</a>
                 <a href="./contacto.html">Contacto</a>
             </nav>
-            <label for="boton_menu" class="icon-equis">×</label>
         </div>
     </div>
 
@@ -42,6 +40,7 @@
                 </p>
                 
                 <div id="galeria-juegos" class="galeria-juegos">
+                    
                     <div class="tarjeta-juego">
                         <div class="imagen-tarjeta">
                             <img src="../img/icono_3raya.png" alt="Icono 3 en Raya">
@@ -63,8 +62,19 @@
                             <button class="btn-jugar" onclick="abrirJuego('Quiz')">Jugar ahora</button>
                         </div>
                     </div> 
-                </div> 
 
+                    <div class="tarjeta-juego">
+                        <div class="imagen-tarjeta">
+                            <img src="../img/limpieza_oceano.png" alt="Juego Limpieza Océano">
+                        </div>
+                        <div class="contenido-tarjeta">
+                            <h3>Misión limpieza</h3>
+                             <p> ¡El océano está sucio! Ayuda a los peces recogiendo la basura y depositándola en el contenedor correcto. </p>
+                        <button class="btn-jugar" onclick="abrirJuego('Pecera')">Jugar ahora</button>
+                        </div>
+                     </div>
+
+                </div>
             </div> 
             
             <div id="contenedor-juego-3enRaya" class="oculto">
@@ -159,6 +169,63 @@
                 </div>
             </div>
 
+            <div id="contenedor-juego-Pecera" class="oculto">
+                <div class="juegos" id="Pecera">
+                    
+                    <div id="intro-pecera" class="cabecera-juegos">
+                        <h2 class="titulo-mision" style="color: #0077be;">Misión limpieza</h2>
+                        <img src="../img/limpieza_oceano.png" alt="Imagen Pecera" class="img-cabecera-pecera">
+                        
+                        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px;">
+                            ¡Ayuda a la fauna marina! <br>
+                            Arrastra la basura al contenedor y deja que los peces naden libres.
+                        </p>
+                        
+                        <div class="contenedor-controles">
+                            <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
+                            <button class="btn-control btn-comenzar" onclick="iniciarPeceraUI()">Comenzar Misión</button>
+                        </div>
+                    </div>
+
+                    <div id="juego-pecera" class="oculto">
+
+                        <div class="hud-pecera">
+                            <div class="marcador-caja">
+                                <span>🗑️ Basura: </span>
+                                <span id="puntuacion-pecera">0</span>
+                            </div>
+                            <div class="marcador-caja">
+                                <span>⏳ Tiempo: </span>
+                                <span id="tiempo-pecera">30</span>s
+                            </div>
+                        </div>
+
+                        <div id="zona-juego"></div>
+
+                        <div id="contenedor-reciclaje" class="cubo-reciclaje">
+                            <div class="tapa-cubo"></div>
+                            <span style="font-size: 2rem;">♻️</span>
+                        </div>
+
+                        <div id="overlay-start" class="overlay-juego">
+                            <div style="text-align: center;">
+                                <h2 style="color: white; font-size: 4rem; text-shadow: 4px 4px 0px #003c73; margin: 0 0 20px 0; line-height: 1;"> ¿Listo? </h2>
+                                <button class="btn-start-grande" onclick="arrancarMecanicasPecera()"> ¡Start! 🐠 </button>
+                            </div>
+                        </div>
+
+                        <div id="overlay-gameover" class="overlay-juego oculto">
+                            <h2 style="color: white;">¡Tiempo agotado!</h2>
+                            <p style="color: white; font-size: 1.5rem;">Puntuación final: <span id="puntuacion-final-pecera">0</span></p>
+                            <button class="btn-primario" onclick="reiniciarPecera()">Jugar de nuevo</button>
+                        </div>
+
+                        <button class="btn-salir-juego" onclick="volverGaleria()" style="position: absolute; top: 10px; right: 10px; z-index: 100;">Salir</button>
+
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
@@ -169,6 +236,7 @@
     <script src="../js/juegos/funcionalidad_UI_common.js"></script>
     <script src="../js/juegos/tres_en_raya_logic.js"></script>
     <script src="../js/juegos/quiz_marino.js"></script>
+    <script src="../js/juegos/oceano_limpio.js"></script>
     
     <script>
         function iniciarPartidaUI() {
@@ -180,4 +248,3 @@
 
 </body>
 </html>
-
