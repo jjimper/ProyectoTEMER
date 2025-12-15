@@ -192,15 +192,20 @@ button[type="submit"]:hover {
 /* -------------------------
    FOOTER
 -------------------------- */
-
 footer {
+    background-color: #003c73;
+    color: #ffffff;
+    padding: 16px 0;
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    background: #003c73;
-    color: white;
-    font-size: 14px;
+    border-top: 5px solid #00b4d8;
+    margin-top: auto;
 }
+
+/* Clases utilitarias */
+.destacado {
+    font-weight: bold;
+}
+
 
 /* -------------------------
    RESPONSIVE

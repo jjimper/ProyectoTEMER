@@ -15,7 +15,7 @@ app.use(express.static(__dirname)); // Servir archivos estáticos desde la carpe
 
 app.get('/', (req, res) => {
     // Cargo html inicial
-    res.sendFile(path.join(__dirname, 'index_julia.html'));
+    res.sendFile(path.join(__dirname, 'main_index.html'));
 });
 
 // Mini base de datos para el Quiz de Vida Submarina

@@ -13,6 +13,7 @@
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background-color: var(--bg-light);
     display: flex;
@@ -505,9 +506,9 @@ body.juego-terminado .celda:hover {
    8. FOOTER
    ========================================= */
 footer {
-    background-color: var(--color-primary);
+    background-color: #003c73;
     color: var(--color-text-light);
-    padding: 15px 0;
+    padding: 1px 0;
     text-align: center;
     border-top: 5px solid var(--color-accent);
     margin-top: auto;
