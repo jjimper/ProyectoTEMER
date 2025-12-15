@@ -1,0 +1,246 @@
+﻿/*Estilos header*/
+header {
+    background-color: #0077b6;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#titulo-web {
+    margin: 0;
+    font-size: 2.5em; /* Tama�o de fuente cubierto. */
+}
+
+
+/*Estilos menu Navegacion*/
+nav.contenedor-principal {
+    background-color: #0096c7;
+    margin-bottom: 20px; /* Separaci�n antes del <main> */
+}
+
+nav.contenedor-principal ul {
+    list-style-type: none; /* Quita las vi�etas (cubierto). */
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav.contenedor-principal li.enlace-nav {
+    display: inline-block; /* Muestra los enlaces en l�nea (cubierto). */
+}
+
+nav.contenedor-principal a {
+    text-decoration: none; /* Elimina el subrayado (cubierto). */
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    /* Pseudoclase :hover cubierta en el temario */
+    background-color: #0096c7;
+    transition: background-color 0.3s;
+}
+
+nav.contenedor-principal a:hover {
+    background-color: #00b4d8;
+}
+/*** body ****/
+body {
+    /* 1. Usar Flexbox para el control de la disposición principal */
+    display: flex;
+    /* 2. Disponer los hijos (header, nav, main, footer) en columna */
+    flex-direction: column;
+    /* 3. Asegurar que el body ocupe al menos el 100% del alto del viewport */
+    min-height: 100vh;
+    /* Eliminar márgenes por defecto del navegador */
+    margin: 0;
+     cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+
+   
+}
+
+/* Cursor al pasar por encima de un botón/menú  */
+a:hover,
+button:hover,
+.icon-menu:hover,
+input[type="submit"]:hover,
+nav a:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+/* Cursor al hacer clic (active): */
+a:active,
+button:active,
+input[type="submit"]:active,
+nav a:active {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+} 
+
+
+
+ 
+/* Cursor pez globo en botones y menú */
+/*
+.icon-menu:hover,
+.icon-equis:hover,
+#btn-subir:hover {
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, pointer;
+}*/
+
+/* Cuando se hace clic */
+/*
+.icon-menu:active,
+.icon-equis:active,
+#btn-subir:active {
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, pointer;
+} */
+
+
+
+
+
+main.contenedor-principal {
+    /* Ocupa todo el espacio vertical disponible entre <nav> y <footer> */
+    flex-grow: 1;
+}
+
+
+/*/////////  Barra de Navegación Lateral  /////////*/
+
+/* Botón de menú */
+.boton_menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #00b4d8;
+    z-index: 1000;
+}
+
+/* Checkbox oculto */
+#boton_menu {
+    display: none;
+}
+
+/* Contenedor del menú lateral */
+.container-menu {
+    position: fixed;
+    background-color: #00b4d8;
+    width: 250px;
+    height: 100vh;
+    top: 0;
+    left: -250px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+#boton_menu:checked ~ .container-menu {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenido del menú */
+.cont-menu {
+    padding-top: 70px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cont-menu nav a {
+    display: block;
+    padding: 20px;
+    color: rgb(64, 129, 198);
+    text-decoration: none;
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.cont-menu nav a:hover {
+    background-color: #d7f3f8;
+    border-left: 5px solid #f0f0f0;
+}
+
+.cont-menu label.icon-equis {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Icono del menú */
+.boton_menu label.icon-menu {
+    font-size: 40px;
+    cursor: pointer;
+    color: #5780d1;
+}
+
+/*///////// Fin de Barra de Navegación Lateral /////////*/
+
+
+/*Estilo pie de pagina*/
+footer {
+    background-color: #0077b6;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    border-top: 5px solid #00b4d8;
+    margin-top: 30px; /* Separaci�n despu�s del <main> */
+    /* clear: both es esencial si <main> contiene floats que no se limpiaron. */
+    clear: both;
+}
+
+/*Botón de sbubir arriba del todo*/
+#btn-subir {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    display: none; /* Se oculta al inicio */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+#btn-subir:hover {
+    background-color: #0096c7;
+    transform: scale(1.05);
+}
+
+
+.destacado {
+    font-weight: bold; /* Estilo de texto cubierto. */
+}
+
+/* Cursor personalizado para menú y botón subir (sobrescribe pointer) */
+.boton_menu label.icon-menu,
+.cont-menu label.icon-equis,
+#btn-subir {
+    /* cursor por defecto (cuando no se está encima) */
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, auto;
+}
+
+/* Cuando pasas por encima (hover) mostramos el pez-globo */
+.boton_menu label.icon-menu:hover,
+.cont-menu label.icon-equis:hover,
+#btn-subir:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}
+
+/* Al hacer clic (active) también usar pez-globo */
+.boton_menu label.icon-menu:active,
+.cont-menu label.icon-equis:active,
+#btn-subir:active {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+}

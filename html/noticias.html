@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vida Submarina - Noticias</title>
+    <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style_noticias_laura.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <script src="../js/noticias_laura.js" defer></script> -->
+</head>
+<body>
+  <header class="contenedor-principal">
+    <h1 id="titulo-web">Vida submarina</h1>
+  </header>
+
+  <!-- Barra de Navegación Lateral --> 
+    <div class="boton_menu">
+        <label for="boton_menu" class="icon-menu">☰</label> <!-- Icono de menú -->
+    </div>   
+    <input type="checkbox" id="boton_menu">
+
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="../main_index.html">Inicio</a>
+                <a href="./noticias.html">Noticias</a>
+                <a href="./juegos.html">Juegos</a>
+                <a href="./contacto.html">Contacto</a>
+            </nav>
+            <label for="boton_menu" class="icon-equis">×</label> <!-- Icono para cerrar -->
+        </div>
+    </div>
+
+
+  <main class="contenedor-principal">
+  <section class="FiltroAnimales" id="filtros-noticias">
+    <button class="btn-filtro" onclick="cargarYMostrar('todas')">Todas</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('plastico')">Contaminación/Plástico</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('conservacion')">Conservación</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('especies')">Especies</button>
+    <button class="btn-filtro" onclick="cargarYMostrar('todas')">Refrescar</button>
+  </section>
+
+  <section id="contenedor-noticias"></section>
+</main>
+  <script src="../js/subir.js"></script>
+  <script src="../js/noticias_laura.js" defer></script>
+  <footer class="contenedor-principal">
+    <p>&copy; Trabajo Tecnologias Emergentes 2025 <span class="destacado"> Marta Ripoll, Maria, Laura Garcia y Julia Jimenez</span></p>
+    <button id="btn-subir">↑ Subir</button>
+  </footer>
+</body>
+</html>
