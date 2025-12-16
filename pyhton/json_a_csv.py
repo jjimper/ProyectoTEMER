@@ -1,3 +1,8 @@
+
+# Author:       M.Ripoll
+# Date:         Dec.25
+# Description:  Conversor json a csv
+
 import json
 import csv
 import os
