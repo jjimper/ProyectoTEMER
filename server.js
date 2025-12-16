@@ -67,6 +67,5 @@ app.listen(PORT, () => {
     console.log(`\nVIDA SUBMARINA - SERVIDOR LISTO `);
     console.log(`----------------------------------------`);
     console.log(`Web disponible en:    http://localhost:${PORT}`);
-    console.log(`API Ranking lista en: http://localhost:${PORT}/api/ranking`);
     console.log(`----------------------------------------`);
 });
