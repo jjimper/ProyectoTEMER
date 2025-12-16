@@ -1,4 +1,7 @@
-﻿/*Estilos header*/
+﻿body {
+    font-family: Arial, Helvetica, sans-serif; 
+}
+/*Estilos header*/
 
 header {
     background-color: #0077b6;
