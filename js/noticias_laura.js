@@ -1,4 +1,4 @@
-const API_KEY = "edfd93fb985673144c2462dac56d53f0"; // <--- Pega aquí tu API Key
+const API_KEY = "8d2157ef3db2d465181cdf6922bc44b8"; // <--- Pega aquí tu API Key
 const contenedorNoticias = document.getElementById("contenedor-noticias");
 
 // Función para obtener noticias desde GNews
