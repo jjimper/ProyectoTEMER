@@ -23,6 +23,7 @@ const condicionesVictoria = [
 /* ==========================================================================
    SECCIÓN 1: NAVEGACIÓN
 ========================================================================== */
+/** Gestiona la transición de la pantalla de inicio al tablero de juego */
 function iniciarPartidaUI() {
     
     const intro = document.getElementById('intro-juego');
@@ -42,6 +43,7 @@ function iniciarPartidaUI() {
 /* ==========================================================================
    SECCIÓN 2: LÓGICA PRINCIPAL DEL JUEGO
 ========================================================================== */
+/** Reinicia variables, limpia el tablero y resetea la interfaz */
 function iniciarLogicaJuego() {
     turnoActual = jugadorHumano; 
     tablero = ["", "", "", "", "", "", "", "", ""]; 
@@ -67,10 +69,10 @@ function iniciarLogicaJuego() {
         celda.classList.remove("ganadora");
     });
 
-    console.log("Juego reiniciado correctamente.");
+    //console.log("Juego reiniciado correctamente.");
 }
 
-//Manejar el click en una celda
+/** Gestiona la interacción del usuario al hacer clic en una celda */
 function clickCelda(evento) {
     if(!juegoActivo || turnoActual !== jugadorHumano) return;
 
@@ -86,7 +88,7 @@ function clickCelda(evento) {
    };
 }
 
-//Realizar movimiento
+/** Actualiza el estado lógico y visual de una celda específica */
 function hacerMovimiento(celda, indice, jugador) {
     tablero[indice] = jugador;
 
@@ -101,7 +103,7 @@ function hacerMovimiento(celda, indice, jugador) {
     }
 }
 
-//Cambiar turno
+/** Alterna el turno entre humano e IA*/
 function cambiarTurno() {
     turnoActual = (turnoActual === 'X') ? 'O' : 'X';
 
@@ -122,6 +124,7 @@ function cambiarTurno() {
    SECCIÓN 3: VERIFICACIÓN DE VICTORIA
 ========================================================================== */
 
+/** Evalúa si hay un ganador, un empate o si el juego continúa */
 function verificarEstadoJuego() {
     let rondaGanada = false;
     let combinacionGanadora = [];
@@ -154,6 +157,7 @@ function verificarEstadoJuego() {
     return false;
 }
 
+/** Detiene el juego, muestra el resultado final y efectos visuales */
 function finalizarPartida(ganador, combinacion) {
     juegoActivo = false;
     const mensajeEstado = document.getElementById("mensaje-estado");
@@ -183,8 +187,9 @@ function finalizarPartida(ganador, combinacion) {
 }
 
 /* ==========================================================================
-   SECCIÓN 4: INTELIGENCIA ARTIFICIAL (NIVEL FÁCIL)
+   SECCIÓN 4: INTELIGENCIA ARTIFICIAL
 ========================================================================== */
+/** Determina y ejecuta el movimiento de la IA según la dificultad */
 function movimientoIA() {
     if (!juegoActivo) return;
     
@@ -194,7 +199,7 @@ function movimientoIA() {
     let indiceElegido;
 
     if (nivel === 'facil') {
-        indiceElegido = obtenerMovimientoAleatorio(); //definir funcion
+        indiceElegido = obtenerMovimientoAleatorio();
     }
     else if (nivel === 'medio') {
         if (Math.random() > 0.4) {
@@ -220,6 +225,7 @@ function movimientoIA() {
 }
 
 // --- FUNCIONES AUXILIARES IA ---
+/** Devuelve un índice disponible aleatorio en el tablero */
 function obtenerMovimientoAleatorio() {
 
     let celdasDisponibles = [];
@@ -234,6 +240,7 @@ function obtenerMovimientoAleatorio() {
     return celdasDisponibles[random];
 }
 
+/** Calcula la jugada óptima: ganar, bloquear o centro */
 function obtenerMejorMovimiento() {
     
     //Movimiento ataque de IA
@@ -251,6 +258,7 @@ function obtenerMejorMovimiento() {
     return obtenerMovimientoAleatorio();
 }
 
+/** Identifica celdas para ganar o bloquear una victoria inminente */
 function buscarJugadaCritica(jugadorObjetivo) {
     for (let i = 0; i < condicionesVictoria.length; i++) {
         const [a, b, c] = condicionesVictoria[i];
@@ -266,8 +274,8 @@ function buscarJugadaCritica(jugadorObjetivo) {
 /* ==========================================================================
    SECCIÓN 5: EFECTO DE GLOBOS
    ========================================================================== */
-
-   function lanzarCelebracionGlobos() {
+/** Genera y anima los elementos visuales de celebración */   
+function lanzarCelebracionGlobos() {
     
     //Creamos contenedor para los globos
     let contenedor = document.getElementById('contenedor-globos');
@@ -299,6 +307,7 @@ function buscarJugadaCritica(jugadorObjetivo) {
     setTimeout(eliminarGlobos, 6000);
 }
 
+/** Limpia el contenedor de efectos visuales del DOM */
 function eliminarGlobos() {
     const contenedor = document.getElementById('contenedor-globos');
     if (contenedor) {
