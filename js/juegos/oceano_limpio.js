@@ -25,7 +25,7 @@ const imagenesPeces = [
     '../img/pez_amarillo.png'
 ];
 
-
+/** Inicializa la interfaz visual, resetea puntuación y asigna eventos de ratón */
 function iniciarPeceraUI() {
     
     const intro = document.getElementById('intro-pecera');
@@ -53,6 +53,8 @@ function iniciarPeceraUI() {
 
 
 // 2. BOTÓN START
+
+/** Arranca el cronómetro principal y los intervalos de generación de peces y basura */
 function arrancarMecanicasPecera() {
     console.log("¡Acuario en movimiento!");
     
@@ -75,6 +77,7 @@ function arrancarMecanicasPecera() {
 }
 
 // 3. GENERADOR DE PECES
+/** Crea un pez con imagen, tamaño, dirección y velocidad aleatorios */
 function crearPez() {
     const zona = document.getElementById('juego-pecera');
     if (!zona) return;
@@ -112,6 +115,7 @@ function crearPez() {
 }
 
 // 4. GENERADOR DE BASURA
+/** Genera un elemento de basura que cae y habilita su interacción (drag) */
 function crearBasura() {
 
     const zona = document.getElementById('zona-juego');
@@ -141,6 +145,8 @@ function crearBasura() {
 }
 
 // 5. ACTUALIZAR TEXTOS
+
+/** Actualiza los elementos DOM del tiempo restante y la puntuación */
 function actualizarMarcadores() {
     const tiempoElement = document.getElementById('tiempo-pecera');
     const puntosElement = document.getElementById('puntuacion-pecera');
@@ -150,6 +156,8 @@ function actualizarMarcadores() {
 }
 
 // 6. FIN DEL JUEGO
+
+/** Detiene temporizadores, limpia eventos y muestra la pantalla de Final */
 function finDelJuegoPecera() {
     
     clearInterval(intervaloJuego);
@@ -171,7 +179,8 @@ function reiniciarPecera() {
 /* ==========================================================================
    LÓGICA DE ARRASTRE (DRAG & DROP)
    ========================================================================== */
-function agarrarBasura(e) {
+/** Inicia el arrastre: calcula posición relativa y detiene animación de caída */
+   function agarrarBasura(e) {
     elementoArrastrado = this;
 
     const rect = elementoArrastrado.getBoundingClientRect();
@@ -198,6 +207,7 @@ function agarrarBasura(e) {
     elementoArrastrado.style.cursor = 'grabbing';
 }
 
+/** Actualiza las coordenadas del elemento siguiendo el movimiento del ratón */
 function moverBasura(e) {
     if (!elementoArrastrado) return;
     e.preventDefault(); 
@@ -211,6 +221,7 @@ function moverBasura(e) {
     elementoArrastrado.style.top = y + 'px';
 }
 
+/** Verifica si la basura cae en el cubo (puntos) o fuera (caída libre) */
 function soltarBasura(e) {
     if (!elementoArrastrado) return;
 

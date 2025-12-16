@@ -66,7 +66,7 @@ const bancoPreguntas = [
     { texto: "¿Qué ODS se centra en 'Alianzas para lograr los objetivos'?", opciones: ["ODS 10", "ODS 17", "ODS 3", "ODS 1"], respuesta: 1 },
 ];
 
-let preguntasJuego = []; // Aquí guardaremos las 10 seleccionadas
+let preguntasJuego = [];
 let indicePreguntaActual = 0;
 let puntuacion = 0;
 
@@ -246,36 +246,29 @@ function guardarPuntuacionEnServidor() {
 
 
 function consultarPuntuaciones() {
-    // 1. Petición al archivo JSON (ruta relativa desde el HTML)
+    // Petición al archivo JSON
     fetch('../puntuaciones.json')
         .then(respuesta => respuesta.json())
         .then(datos => {
 
-            // 2. Filtramos solo los del juego "Quiz Marino" (opcional si el json tiene mezcla)
             const notasQuiz = datos.filter(d => d.juego === "Quiz Marino");
 
-            // 3. Ordenamos de mayor a menor puntuación
-            notasQuiz.sort((a, b) => b.puntos - a.puntos);
-
-            // 4. Nos quedamos solo con los 3 primeros
+            notasQuiz.sort((a, b) => b.puntos - a.puntos); // orden de mayor a menor
             const top3 = notasQuiz.slice(0, 3);
 
-            // 5. Generamos el HTML
             const lista = document.getElementById('lista-ranking');
-            lista.innerHTML = ""; // Limpiar lista anterior
+            lista.innerHTML = "";
 
             top3.forEach((item, index) => {
                 const li = document.createElement('li');
                 li.style.fontSize = "1.2rem";
                 li.style.marginBottom = "10px";
-                // Añadimos medallas según posición
                 let medalla = index === 0 ? "🥇" : index === 1 ? "🥈" : "🥉";
 
                 li.innerHTML = `<strong>${medalla} ${item.nombre}</strong>: ${item.puntos} puntos <span style="font-size:0.8rem; color:gray">(${item.fecha})</span>`;
                 lista.appendChild(li);
             });
 
-            // 6. Mostramos el contenedor
             document.getElementById('ranking-container').classList.remove('oculto');
         })
         .catch(error => {
