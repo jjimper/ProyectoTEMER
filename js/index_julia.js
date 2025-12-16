@@ -14,7 +14,7 @@ function FiltrarAgenda2030() {
                                                                                                                               //> Para id uso el #.
     for (let i = 0; i < tarjetas_Agenda2030.length; i++) {
         let tarjeta_Agenda2030 = tarjetas_Agenda2030[i];
-        tarjeta_Agenda2030.style.display = 'block';
+        tarjeta_Agenda2030.style.display = ""; //Me daba problemas en la primera tarjeta
     }
 }
 
