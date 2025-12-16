@@ -146,23 +146,10 @@ button[type="submit"]:hover {
     background: var(--color-secondary);
 }
 
-/* =========================================
-   4. FOOTER
-   ========================================= */
-footer {
-    background-color: var(--color-primary-dark);
-    color: var(--color-text-light);
-    padding: 16px 0;
-    text-align: center;
-    border-top: 5px solid var(--color-accent);
-    margin-top: auto;
-}
-
 /* Clases utilitarias */
 .destacado {
     font-weight: bold;
 }
-
 /* =========================================
    5. RESPONSIVE
    ========================================= */
