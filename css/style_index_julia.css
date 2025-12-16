@@ -1,50 +1,27 @@
-/* =======================================================
-   ESTILO GLOBAL
-   (Inspirado en noticias_laura.css para coherencia visual)
-   ======================================================= */
-
-/* Usamos un reset básico y la fuente de Laura para que todo se vea limpio */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* =======================================================
-   SECCIÓN DE FILTROS - Botones
-   ======================================================= */
-
+/* SECCIÓN DE FILTROS */
 /* Contenedor de los botones */
 .Filtro {
-
     display: flex;
     width: 100%;
     align-items: center;
-    
+    justify-content: center;
     padding: 20px 0px;
-    border-bottom: 2px solid #e1e1e1;
+    /*border-bottom: 2px solid #e1e1e1;*/
     gap: 10px; /* Separación entre botones */
 }
 
 /* Estilo de cada botón individual */
 .btn-filtro {
-    /* Flex: 1 hace que todos los botones ocupen el mismo ancho */
-    flex: 1;
-    /* (ESTILO LAURA): Copiamos exactamente los colores y formas de su botón */
-    background-color: #0077b6; /* Azul oscuro corporativo */
-    color: white;              /* Texto blanco */
-    padding: 12px 15px;        /* Relleno interno */
-    border: none;              
-    border-radius: 25px;       /* Bordes  redondeados */
-    font-weight: bold;        
-    cursor: pointer;           
-    
-    /* Sombra suave para darle volumen */
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    
-    /* Transición suave para el hover (seguro de usar porque está en el archivo de Laura) */
     transition: transform 0.2s ease, background-color 0.3s ease;
-    
-    /* Asegura que el padding no aumente el tamaño total */
-    box-sizing: border-box;
 }
 
 /* Efecto al pasar el ratón por encima del botón */
@@ -53,31 +30,22 @@ body {
     transform: translateY(-2px); /* Se mueve 2 píxeles hacia arriba */
 }
 
-/* =======================================================
-   CONTENEDOR PRINCIPAL DE INFORMACIÓN
-   ======================================================= */
+   /*CONTENEDOR PRINCIPAL DE INFORMACIÓN*/
 .info {
-    margin-top: 20px;
+    margin: 20px 0px;
     display: flex;
     
     /* Permite que las tarjetas bajen a la siguiente línea si no caben */
     flex-wrap: wrap; 
-    
     /* Distribuye el espacio sobrante entre las tarjetas */
     justify-content: center;
-    
     /* Hace que todas las tarjetas de una misma fila tengan la misma altura */
     align-items: stretch;
-    
     gap: 20px; /* Hueco seguro entre elementos */
+
 }
 
-/* =======================================================
-   ESTILOS COMUNES PARA TODAS LAS TARJETAS
-   (Agenda2030, ODS, ODS14)
-   Aquí aplicamos la "pintura" de Laura a tu "estructura"
-   ======================================================= */
-
+/*ESTILOS COMUNES PARA TODAS LAS TARJETAS*/
 .Agenda2030, .ODS {
     background-color: white;
     
@@ -145,11 +113,8 @@ body {
     border-radius: 10px; 
 }
 
-/* =======================================================
-   ESTRUCTURA ESPECÍFICA DE CADA TIPO DE TARJETA
+   /*ESTRUCTURA ESPECÍFICA DE CADA TIPO DE TARJETA*/
    
-   ======================================================= */
-
 /* --- 1. TARJETA AGENDA 2030 (La ancha de arriba) --- */
 .Agenda2030 {
     width: 100%; /* Ocupa todo el ancho */
@@ -192,7 +157,7 @@ body {
 }
 
 
-/* --- 2. TARJETAS ODS (Las pequeñas del medio) --- */
+/* --- 2. TARJETAS ODS --- */
 .ODS {
     /* Calculamos el ancho para que quepan 4 (25%) restando el hueco (gap) */
     width: calc(25% - 20px); 
@@ -229,7 +194,6 @@ body {
 }
 
 
-
 /* --- 3. TARJETA ODS 14 --- */
 .tarjeta_ODS14 {
     /* (ESTILO LAURA): Fondo blanco puro */
@@ -242,7 +206,6 @@ body {
     /* CORRECCIÓN DE ESPACIADO */
     box-sizing: border-box; /* Crucial: incluye padding en el 100% */
     width: 100%; /* Ocupa todo el ancho disponible */
-
     padding: 20px; /* Espacio interno */
     margin-bottom: 20px; /* Solo margen inferior para separar tarjetas */
     /* Animación suave */
@@ -254,8 +217,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-
 
 
 .tarjeta_ODS14 h4 {
@@ -301,15 +262,6 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-}
-
-footer {
-    background-color: #003c73;
-    color: #ffffff;
-    padding: 1px 0;
-    text-align: center;
-    border-top: 5px solid #00b4d8;
-    margin-top: auto;
 }
 
 /* Clases utilitarias */

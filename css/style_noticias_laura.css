@@ -110,17 +110,7 @@ body {
     transform: scale(0.95);
 }
 
-/* =========================================
-  FOOTER
-   ========================================= */
-footer {
-    background-color: #003c73;
-    color: #ffffff;
-    padding: 1px 0;
-    text-align: center;
-    border-top: 5px solid #00b4d8;;
-    margin-top: auto;
-}
+
 
 /* Clases utilitarias */
 .destacado {
