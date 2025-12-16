@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vida Submarina - Zona de Juegos</title>
-    <link rel="stylesheet" href="../css/style_juegos.css"> 
+    <title>Vida submarina - Zona de Juegos</title>
+    <link rel="stylesheet" href="../css/style_juegos.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/pez_azul.png" type="image/png">
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="contenedor-principal">
-        <h1 id="titulo-web">Vida Submarina</h1>
+    <header>
+        <img src="../img/cabecera_vida-submarina.png" alt="Cabecera Vida Submarina" id="img-cabecera">
     </header>
+
 
     <div class="boton_menu">
         <label for="boton_menu" class="icon-menu">☰</label>
-    </div>   
+    </div>
     <input type="checkbox" id="boton_menu">
 
     <div class="container-menu">
@@ -26,22 +28,22 @@
                 <a href="./juegos.html">Juegos</a>
                 <a href="./contacto.html">Contacto</a>
             </nav>
-            <label for="boton_menu" class="icon-equis">×</label>
         </div>
     </div>
 
 
     <main class="contenedor-principal">
         <section class="seccion-juegos">
-            
+
             <div id="vista-seleccion">
-                
+
                 <h2>¡Diviértete con nuestros juegos interactivos!</h2>
                 <p style="text-align: center; margin-bottom: 30px; font-size: 1.2rem; color: black;">
                     Selecciona una actividad para aprender y divertirte:
                 </p>
-                
+
                 <div id="galeria-juegos" class="galeria-juegos">
+
                     <div class="tarjeta-juego">
                         <div class="imagen-tarjeta">
                             <img src="../img/icono_3raya.png" alt="Icono 3 en Raya">
@@ -51,7 +53,7 @@
                             <p>El clásico juego de estrategia. ¡Consigue alinear tres figuras antes que la IA!</p>
                             <button class="btn-jugar" onclick="abrirJuego('3enRaya')">Jugar ahora</button>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="tarjeta-juego">
                         <div class="imagen-tarjeta">
@@ -62,22 +64,33 @@
                             <p>¿Cuánto sabes sobre el océano? Pon a prueba tus conocimientos.</p>
                             <button class="btn-jugar" onclick="abrirJuego('Quiz')">Jugar ahora</button>
                         </div>
-                    </div> 
-                </div> 
+                    </div>
 
-            </div> 
-            
+                    <div class="tarjeta-juego">
+                        <div class="imagen-tarjeta">
+                            <img src="../img/limpieza_oceano.png" alt="Juego Limpieza Océano">
+                        </div>
+                        <div class="contenido-tarjeta">
+                            <h3>Misión limpieza</h3>
+                            <p> ¡El océano está sucio! Ayuda a los peces recogiendo la basura y depositándola en el contenedor correcto. </p>
+                            <button class="btn-jugar" onclick="abrirJuego('Pecera')">Jugar ahora</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <div id="contenedor-juego-3enRaya" class="oculto">
-                
+
                 <div class="juegos" id="3enRaya">
-                    
+
                     <div id="intro-juego" class="cabecera-juegos">
                         <h2 class="titulo-tresEnRaya">Tres en raya</h2>
                         <img src="../img/icono_3raya.png" alt="Icono juego 3 en raya" />
-                        
+
                         <div class="contenedor-controles">
                             <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
-                            
+
                             <select id="dificultad" class="control-input">
                                 <option value="facil">Dificultad: Fácil</option>
                                 <option value="medio" selected>Dificultad: Normal</option>
@@ -87,9 +100,9 @@
                             <button class="btn-control btn-comenzar" onclick="iniciarPartidaUI()">Comenzar Juego</button>
                         </div>
                     </div>
-                    
+
                     <div id="tablero-container" class="oculto">
-                        
+
                         <div id="turno">Turno del jugador: <span id="jugador-actual">X</span></div>
                         <h3 id="mensaje-estado" class="oculto"></h3>
 
@@ -106,10 +119,10 @@
                         </div>
 
                         <div id="resultado"></div>
-                        
+
                         <button id="reiniciar" class="btn-primario" style="margin-top: 15px;">Reiniciar Partida</button>
                         <button class="btn-secundario" onclick="volverGaleria()" style="margin-top: 10px; font-size: 0.8rem; padding: 5px 15px;">Salir al menú</button>
-                    
+
                     </div>
 
                 </div>
@@ -117,30 +130,41 @@
 
             <div id="contenedor-juego-Quiz" class="oculto">
                 <div class="juegos" id="Quiz">
-                    
+
                     <div id="intro-quiz" class="cabecera-juegos">
                         <h2 class="titulo-quiz">Quiz Marino</h2>
                         <img src="../img/quiz_marino.png" alt="Imagen Quiz" style="max-width: 400px; margin: 20px auto; display: block;">
-                        
+
                         <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px;">
                             ¡Demuestra cuánto sabes sobre el océano! <br>
                             Responde correctamente para estar entre los mejores.
                         </p>
-            
+
                         <div class="contenedor-controles">
                             <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
+
+                            <button class="btn-control" style="background-color: #f39c12;" onclick="consultarPuntuaciones()">Consultar Puntuaciones</button>
+
                             <button class="btn-control btn-comenzar" onclick="iniciarQuizUI()">Iniciar Quiz</button>
                         </div>
+
+                        <div id="ranking-container" class="oculto" style="margin-top: 20px; background: white; padding: 20px; border-radius: 15px; border: 2px solid #0077be;">
+                            <h3 style="color: #0077be;">🏆 Top 3 Mejores Puntuaciones</h3>
+                            <ul id="lista-ranking" style="list-style: none; padding: 0; text-align: left; display: inline-block;">
+                            </ul>
+                            <br>
+                            <button class="btn-secundario" onclick="document.getElementById('ranking-container').classList.add('oculto')">Cerrar Ranking</button>
+                        </div>
                     </div>
-            
+
                     <div id="juego-quiz" class="oculto" style="text-align: center;">
 
                         <p id="contador-preguntas" style="color: #666; margin-bottom: 10px;"></p>
                         <img src="../img/cabecera_quiz.png" alt="Cabecera Quiz Marino" class="img-cabecera-quiz">
                         <h3 id="texto-pregunta" class="titulo-pregunta"></h3>
-                    
+
                         <div id="contenedor-opciones" class="opciones-container"> </div>
-                    
+
                         <div class="footer-controles">
                             <button class="btn-salir-juego" onclick="volverGaleria()">Salir</button>
                             <button id="btn-siguiente-pregunta" class="btn-primario oculto" onclick="siguientePregunta()">Siguiente ➡</button>
@@ -151,7 +175,7 @@
                             <p style="font-size: 1.2rem;">Tu puntuación final es:</p>
                             <div id="puntuacion-final" style="font-size: 3rem; font-weight: bold; color: #333;">0 / 0</div>
                             <p id="mensaje-final"></p>
-                            
+
                             <button class="btn-primario" onclick="iniciarQuizUI()">Jugar de Nuevo</button>
                             <button class="btn-secundario" onclick="volverGaleria()">Salir</button>
                         </div>
@@ -159,17 +183,76 @@
                 </div>
             </div>
 
+            <div id="contenedor-juego-Pecera" class="oculto">
+                <div class="juegos" id="Pecera">
+
+                    <div id="intro-pecera" class="cabecera-juegos">
+                        <h2 class="titulo-mision" style="color: #0077be;">Misión limpieza</h2>
+                        <img src="../img/limpieza_oceano.png" alt="Imagen Pecera" class="img-cabecera-pecera">
+
+                        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px;">
+                            ¡Ayuda a la fauna marina! <br>
+                            Arrastra la basura al contenedor y deja que los peces naden libres.
+                        </p>
+
+                        <div class="contenedor-controles">
+                            <button class="btn-control btn-volver" onclick="volverGaleria()">Volver</button>
+                            <button class="btn-control btn-comenzar" onclick="iniciarPeceraUI()">Comenzar Misión</button>
+                        </div>
+                    </div>
+
+                    <div id="juego-pecera" class="oculto">
+
+                        <div class="hud-pecera">
+                            <div class="marcador-caja">
+                                <span>🗑️ Basura: </span>
+                                <span id="puntuacion-pecera">0</span>
+                            </div>
+                            <div class="marcador-caja">
+                                <span>⏳ Tiempo: </span>
+                                <span id="tiempo-pecera">30</span>s
+                            </div>
+                        </div>
+
+                        <div id="zona-juego"></div>
+
+                        <div id="contenedor-reciclaje" class="cubo-reciclaje">
+                            <div class="tapa-cubo"></div>
+                            <span style="font-size: 2rem;">♻️</span>
+                        </div>
+
+                        <div id="overlay-start" class="overlay-juego">
+                            <div style="text-align: center;">
+                                <h2 style="color: white; font-size: 4rem; text-shadow: 4px 4px 0px #003c73; margin: 0 0 20px 0; line-height: 1;"> ¿Listo? </h2>
+                                <button class="btn-start-grande" onclick="arrancarMecanicasPecera()"> ¡Start! 🐠 </button>
+                            </div>
+                        </div>
+
+                        <div id="overlay-gameover" class="overlay-juego oculto">
+                            <h2 style="color: white;">¡Tiempo agotado!</h2>
+                            <p style="color: white; font-size: 1.5rem;">Puntuación final: <span id="puntuacion-final-pecera">0</span></p>
+                            <button class="btn-primario" onclick="reiniciarPecera()">Jugar de nuevo</button>
+                        </div>
+
+                        <button class="btn-salir-juego" onclick="volverGaleria()" style="position: absolute; top: 10px; right: 10px; z-index: 100;">Salir</button>
+
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
-    <footer class="contenedor-principal">
-        <p>&copy; Trabajo Tecnologias Emergentes 2025 - <span class="destacado"> Marta Ripoll, Maria Moreno, Laura Garcia y Julia Jimenez</span></p>
+    <footer class="texto-footer">
+        <img src="../img/footer-fondo-marino.png" alt="Fondo Marino Footer" id="img-footer">
+        <!--<button id="btn-subir">↑ Subir</button>-->
     </footer>
 
     <script src="../js/juegos/funcionalidad_UI_common.js"></script>
     <script src="../js/juegos/tres_en_raya_logic.js"></script>
     <script src="../js/juegos/quiz_marino.js"></script>
-    
+    <script src="../js/juegos/oceano_limpio.js"></script>
+
     <script>
         function iniciarPartidaUI() {
             document.getElementById('intro-juego').classList.add('oculto');
@@ -180,4 +263,3 @@
 
 </body>
 </html>
-

@@ -19,7 +19,7 @@ function abrirJuego(juegoId) {
 // Se ejecuta al pulsar "Volver" o "Salir al menú"
 function volverGaleria() {
 
-    const juegosIds = ['contenedor-juego-3enRaya', 'contenedor-juego-Quiz'];
+    const juegosIds = ['contenedor-juego-3enRaya', 'contenedor-juego-Quiz', 'contenedor-juego-Pecera'];
     juegosIds.forEach(id => {
         const contenedor = document.getElementById(id);
         if (contenedor) contenedor.classList.add('oculto');
@@ -43,6 +43,13 @@ function volverGaleria() {
     
     if (introQuiz) introQuiz.classList.remove('oculto');
     if (juegoQuiz) juegoQuiz.classList.add('oculto');
+
+    //Reset visual Mision Limpieza
+    const introPecera = document.getElementById('intro-pecera');
+    const juegoPecera = document.getElementById('juego-pecera');
+
+    if (introPecera) introPecera.classList.remove('oculto');
+    if (juegoPecera) juegoPecera.classList.add('oculto');
 
     juegoActivo = false;
     eliminarGlobos();

@@ -1,110 +1,28 @@
 ﻿/*Estilos header*/
+
 header {
     background-color: #0077b6;
-    color: white;
-    padding: 20px 0;
+    /* Eliminamos background-image y padding porque ahora usamos la etiqueta <img> */
+    padding: 0;
     text-align: center;
-}
-
-#titulo-web {
+    /* El header tendrá la altura automática que le de la imagen */
+    height: auto;
+    /* Quitamos márgenes para que pegue con los bordes */
     margin: 0;
-    font-size: 2.5em; /* Tama�o de fuente cubierto. */
 }
 
+/* Estilo para que la imagen se encuadre perfectamente en el espacio */
+#img-cabecera {
+    /* La imagen ocupará el 100% del ancho de su contenedor padre (el header) */
+    /* Visto en Tema 2.2.2 (Dimensiones) */
+    width: 100%;
+    /* La altura se calcula sola para no deformar la foto */
+    height: auto;
+    /* Elimina un pequeño espacio blanco que a veces queda debajo de las imágenes */
+    display: block;
+}
 
 /*Estilos menu Navegacion*/
-nav.contenedor-principal {
-    background-color: #0096c7;
-    margin-bottom: 20px; /* Separaci�n antes del <main> */
-}
-
-nav.contenedor-principal ul {
-    list-style-type: none; /* Quita las vi�etas (cubierto). */
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-nav.contenedor-principal li.enlace-nav {
-    display: inline-block; /* Muestra los enlaces en l�nea (cubierto). */
-}
-
-nav.contenedor-principal a {
-    text-decoration: none; /* Elimina el subrayado (cubierto). */
-    color: white;
-    padding: 15px 20px;
-    display: block;
-    /* Pseudoclase :hover cubierta en el temario */
-    background-color: #0096c7;
-    transition: background-color 0.3s;
-}
-
-nav.contenedor-principal a:hover {
-    background-color: #00b4d8;
-}
-/*** body ****/
-body {
-    /* 1. Usar Flexbox para el control de la disposición principal */
-    display: flex;
-    /* 2. Disponer los hijos (header, nav, main, footer) en columna */
-    flex-direction: column;
-    /* 3. Asegurar que el body ocupe al menos el 100% del alto del viewport */
-    min-height: 100vh;
-    /* Eliminar márgenes por defecto del navegador */
-    margin: 0;
-     cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
-
-   
-}
-
-/* Cursor al pasar por encima de un botón/menú  */
-a:hover,
-button:hover,
-.icon-menu:hover,
-input[type="submit"]:hover,
-nav a:hover {
-    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
-}
-
-/* Cursor al hacer clic (active): */
-a:active,
-button:active,
-input[type="submit"]:active,
-nav a:active {
-    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
-} 
-
-
-
- 
-/* Cursor pez globo en botones y menú */
-/*
-.icon-menu:hover,
-.icon-equis:hover,
-#btn-subir:hover {
-    cursor: url("../img/pez_globo_cursor_48.png") 0 0, pointer;
-}*/
-
-/* Cuando se hace clic */
-/*
-.icon-menu:active,
-.icon-equis:active,
-#btn-subir:active {
-    cursor: url("../img/pez_globo_cursor_48.png") 0 0, pointer;
-} */
-
-
-
-
-
-main.contenedor-principal {
-    /* Ocupa todo el espacio vertical disponible entre <nav> y <footer> */
-    flex-grow: 1;
-}
-
-
-/*/////////  Barra de Navegación Lateral  /////////*/
-
 /* Botón de menú */
 .boton_menu {
     position: fixed;
@@ -124,7 +42,7 @@ main.contenedor-principal {
 /* Contenedor del menú lateral */
 .container-menu {
     position: fixed;
-    background-color: #00b4d8;
+    background-color: #d7f5f4;
     width: 250px;
     height: 100vh;
     top: 0;
@@ -143,25 +61,29 @@ main.contenedor-principal {
 
 /* Contenido del menú */
 .cont-menu {
-    padding-top: 70px;
+    padding-top: 90px;
     width: 100%;
     height: 100%;
     position: relative;
+    /*border-right: 5px solid #5780d1;*/
 }
 
 .cont-menu nav a {
     display: block;
     padding: 20px;
-    color: rgb(64, 129, 198);
+    color: #5780d1;
     text-decoration: none;
     border-left: 5px solid transparent;
     transition: all 0.3s ease;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .cont-menu nav a:hover {
-    background-color: #d7f3f8;
-    border-left: 5px solid #f0f0f0;
+    /* Fondo oscuro (uso el azul oscuro de tu footer para mantener la estética) */
+    background-color: #023e8a;
+    /* Texto en blanco para que se lea bien sobre el fondo oscuro */
+    color: white;         
 }
 
 .cont-menu label.icon-equis {
@@ -176,23 +98,47 @@ main.contenedor-principal {
 /* Icono del menú */
 .boton_menu label.icon-menu {
     font-size: 40px;
+    padding: 10px;
     cursor: pointer;
     color: #5780d1;
 }
 
-/*///////// Fin de Barra de Navegación Lateral /////////*/
 
+/*** body ****/
+body {
+    /* 1. Usar Flexbox para el control de la disposición principal */
+    display: flex;
+    /* 2. Disponer los hijos (header, nav, main, footer) en columna */
+    flex-direction: column;
+    /* 3. Asegurar que el body ocupe al menos el 100% del alto del viewport */
+    min-height: 100vh;
+    /* Eliminar márgenes por defecto del navegador */
+    margin: 0;
+    cursor: url("../img/pez_globo_cursor_48.png") 0 0, auto;
+
+}
+
+main.contenedor-principal {
+    /* Ocupa todo el espacio vertical disponible entre <nav> y <footer> */
+    flex-grow: 1;
+}
 
 /*Estilo pie de pagina*/
 footer {
-    background-color: #0077b6;
-    color: white;
-    padding: 15px 0;
-    text-align: center;
-    border-top: 5px solid #00b4d8;
-    margin-top: 30px; /* Separaci�n despu�s del <main> */
-    /* clear: both es esencial si <main> contiene floats que no se limpiaron. */
-    clear: both;
+    /* Posición relativa: Necesaria para que el texto sepa dónde colocarse (dentro del footer) */
+    position: relative; /* Visto en diapositivas de posicionamiento */
+    /* Quitamos padding y márgenes internos para que la imagen toque los bordes */
+    padding: 0;
+    /*margin-top: 30px;*/
+    /* Asegura que el footer no tenga altura 0 */
+    overflow: hidden;
+}
+
+/* 1. Estilo para la imagen del footer (Igual que en el header) */
+#img-footer {
+    width: 100%; /* Ocupa todo el ancho */
+    height: auto; /* Altura automática proporcional */
+    display: block; /* Quita espacios blancos extra */
 }
 
 /*Botón de sbubir arriba del todo*/
@@ -218,7 +164,6 @@ footer {
     transform: scale(1.05);
 }
 
-
 .destacado {
     font-weight: bold; /* Estilo de texto cubierto. */
 }
@@ -235,12 +180,31 @@ footer {
 .boton_menu label.icon-menu:hover,
 .cont-menu label.icon-equis:hover,
 #btn-subir:hover {
-    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, auto;
 }
 
 /* Al hacer clic (active) también usar pez-globo */
 .boton_menu label.icon-menu:active,
 .cont-menu label.icon-equis:active,
 #btn-subir:active {
-    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, pointer;
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, auto;
 }
+
+
+/* Cursor al pasar por encima de un botón/menú  */
+a:hover,
+button:hover,
+.icon-menu:hover,
+input[type="submit"]:hover,
+nav a:hover {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, auto;
+}
+
+/* Cursor al hacer clic (active): */
+a:active,
+button:active,
+input[type="submit"]:active,
+nav a:active {
+    cursor: url("../img/pez_blobo_cursor_48_v2.png") 0 0, auto;
+}
+

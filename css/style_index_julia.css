@@ -1,266 +1,270 @@
-
-
-/*********** Botones **********/
-
-/* Contenedor principal de los botones de filtro: display flex en línea horizontal */
+/* SECCIÓN DE FILTROS */
+/* Contenedor de los botones */
 .Filtro {
-    /* Usar display flex para colocar los hijos en línea horizontal (eje principal) */
     display: flex;
-    /* Aplicar un padding para separarlo de los bordes del contenedor principal */
-    padding: 10px 0;
-    /* Establecer un borde inferior para una separación visual limpia */
-    border-bottom: 2px solid #ccc;
-    /* El ancho ocupa todo el espacio del padre */
     width: 100%;
-    /* Centramos los elementos en el eje transversal */
     align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+    /*border-bottom: 2px solid #e1e1e1;*/
+    gap: 10px; /* Separación entre botones */
 }
 
-/* Estilos para cada botón individual dentro del contenedor .Filtro */
+/* Estilo de cada botón individual */
 .btn-filtro {
-    /* flex: 1 para que cada botón ocupe una parte igual del espacio disponible (100% dividido) */
-    flex: 1;
-    /* Relleno interno y bordes */
-    padding: 10px 15px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    margin: 0 5px;
-    background-color: #007bff;
+    background-color: #0077b6;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
-    /* Aseguramos que el tamaño de la caja se calcule incluyendo padding y borde */
-    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-/*:hover para el efecto al pasar el ratón */
+/* Efecto al pasar el ratón por encima del botón */
 .btn-filtro:hover {
-    background-color: #0056b3;
+    background-color: #0096c7; /* Se vuelve un azul más claro */
+    transform: translateY(-2px); /* Se mueve 2 píxeles hacia arriba */
 }
 
-/***** info - contenedor d todas las tarjetas ******/
-/* Contenedor principal de todas las tarjetas de información. */
+   /*CONTENEDOR PRINCIPAL DE INFORMACIÓN*/
 .info {
-    margin-top: 20px;
-    /* Distribucion en fila*/    
+    margin: 20px 0px;
     display: flex;
-    /* Permite que las tarjetas se envuelvan a la siguiente fila si no caben */
-    flex-wrap: wrap;
-    /* Distribuye el espacio entre las tarjetas */
-    justify-content: space-between;
-    /* Estira las tarjetas para que todas ocupen la misma altura en la fila */
+    
+    /* Permite que las tarjetas bajen a la siguiente línea si no caben */
+    flex-wrap: wrap; 
+    /* Distribuye el espacio sobrante entre las tarjetas */
+    justify-content: center;
+    /* Hace que todas las tarjetas de una misma fila tengan la misma altura */
     align-items: stretch;
+    gap: 20px; /* Hueco seguro entre elementos */
+
 }
 
-/****** ESTILO COLORES - TODAS LAS TARJETAS ******/
-/* Estilos base para todas las secciones de información (tarjetas) */
-.Agenda2030, .ODS, .ODS14 {
-    padding: 15px;
-    border: 1px solid #ddd;
-    /* 5. Fondo de tarjeta más oscuritas */
-    background-color: #e6e6e6;
-    margin-bottom: 20px;
-    transition: all 0.3s ease-in-out;
+/*ESTILOS COMUNES PARA TODAS LAS TARJETAS*/
+.Agenda2030, .ODS {
+    background-color: white;
+    
+    /* Borde gris muy suave y esquinas redondeadas */
+    border: 1px solid #e1e1e1;
+    border-radius: 15px; 
+    
+    /* Sombra paralela muy sutil para efecto 3D */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    
+    /* Espaciado interno para que el texto no toque los bordes */
+    padding: 20px;
+    margin:0px  20px;
+    
+    /* Preparamos la animación suave para cuando pasemos el ratón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Modelo de caja seguro */
     box-sizing: border-box;
-    /* APLICAR BORDE REDONDO */
-    border-radius: 5px;
-    /* Añadimos una altura mínima para dar espacio a la imagen más grande */
     min-height: 150px;
 }
 
-/* Propiedades generales de imágenes de ODS (mismo tamaño y centrado) */
-.ODS img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
+.ODS14 {
+    /* Espaciado interno para que el texto no toque los bordes */
+    /*padding: 20px;*/
+    margin: 0px 20px;
+    /* Modelo de caja seguro */
+    box-sizing: border-box;
+    min-height: 150px;
 
-/* Estilos para los títulos de las tarjetas */
-.Agenda2030 h4, .ODS h4{
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/****************** ESTILO POSICIONAMIENTO ****************/
-/*********** Agenda 2030 - PROBLEMAS ***********/
-
-/* La tarjeta Agenda2030 en sí misma se mantiene como flex, lo cual es correcto */
-.Agenda2030 {
-    width: 100%;
-    /* La regla de flex aquí no es estrictamente necesaria si se usa el ID,
-       pero la dejamos por si acaso otras tarjetas .Agenda2030 lo necesitan. */
-    display: flex;
-}
-
-/* 1. HIJOS EN FILA: #contenedor-agenda organiza sus hijos en fila */
-#contenedor-agenda {
-    display: inline-flex; /*PROBELMA EL */
-    flex-direction: column;
-    flex-wrap: nowrap; /* Evita que salte de línea */
-    width: 100%;
-    /*align-items: stretch;*/ /*Para alargar la altura */
-}
-
-/* 2. HIJOS EN COLUMNA: .contenedor-img2030Titulo organiza h4 e img en columna */
-.contenedor-img2030Titulo {
-    display: inline-flex;
-    flex-direction: column; /* Esto apila h4 e img (COLUMNA) */
-    width: 250px;
-    align-items: center; /* Centra h4 e img horizontalmente */
-    margin-right: 20px;
-    flex-shrink: 0; /* Evita que se encoja */
-}
-
-/* 3. CENTRADO: .textoAgenda2030 centra su hijo (el párrafo <p>) verticalmente */
-.textoAgenda2030 {
-    flex: 1; /* Ocupa el espacio restante en la fila */
-    min-width: 200px;
-    /* La clave para centrar el párrafo dentro de este contenedor */
-    display: flex;
-    align-items: center; /* Centra el párrafo verticalmente (eje transversal) */
-    justify-content: flex-start; /* Mantiene el contenido del párrafo a la izquierda de la caja */
-    /* Quitamos flex-direction: column para que el párrafo se comporte más flexiblemente,
-       pero para ser explícitos y asegurar el centrado, lo reajustamos: */
-    flex-direction: row;
-    justify-content: center; /* Centra el párrafo horizontalmente en su contenedor */
-}
-
-/* AJUSTE para el párrafo (hijo directo de .textoAgenda2030) */
-.textoAgenda2030 p {
-    width: 95%; /* Ocupa casi todo el ancho disponible */
-    margin: 0;
-    text-align: left; /* Asegura que el texto dentro del párrafo se alinee a la izquierda (lectura) */
-    display: flex;
-}
-
-/* El párrafo de las tarjetas 2 y 3 (COLUMNA) */
-.Agenda2030 p {
-    display: flex; /*PROBLEMAS*/
-    width: 100%;
-    margin: 10px 0;
-}
-
-/********** ODS ********/
-.ODS {
-    /* 4. y 2. Ocuparán 4 por fila. (100% / 4) - 15px de margen */
-    width: calc(25% - 15px);
-    /* Organiza los bloques principales (tituloimgODS y contenido-oculto) en columna */
-    display: flex;
-    flex-direction: column;
-    /* CENTRADO DE LA TARJETA: Centra el bloque de título/imagen (tituloimgODS) 
-       y el bloque oculto (contenido-oculto) horizontalmente dentro de la tarjeta ODS.
-       También es vital para el ARREGLO DE HUECO, ya que asegura que los ítems internos
-       estén centrados y bien alineados. */
-    align-items: center;
-    /* CENTRADO: Centra el contenido verticalmente si hay espacio extra */
-    justify-content: center;
-}
-
-.tituloimgODS {
-    /* Mantiene el título y la imagen apilados */
-    display: flex;
-    flex-direction: column;
-    /* CENTRADO: Centra los hijos (H4 y IMG) horizontalmente dentro de este div */
-    align-items: center;
-    /* CENTRADO: Alinea el título e imagen en el centro del espacio del div */
-    justify-content: center;
-    /* Ocupa todo el ancho disponible del contenedor ODS */
+    display: block;
     width: 100%;
 }
+/* Efecto HOVER común para todas las tarjetas */
+.Agenda2030:hover, .ODS:hover {
+    /* La tarjeta sube un poco (-5px en eje Y) */
+    transform: translateY(-5px); 
+    /* La sombra se hace más grande y azulada */
+    box-shadow: 0 15px 25px rgba(0,119,182, 0.15); 
+}
 
-/* Propiedades generales de imágenes de ODS (mismo tamaño y centrado) */
+/* Títulos dentro de las tarjetas */
+.Agenda2030 h4, .ODS h4, .ODS14 h4 {
+    margin: 16px 16px;
+    color: #0096c7; /* Azul cian de Laura para destacar títulos */
+    font-size: 1.2rem;
+    font-weight: bold;
+    align-content:center;
+    
+}
+
+/* Texto normal dentro de las tarjetas */
+.Agenda2030 p, .ODS p, .ODS14 p {
+    color: #666; /* Gris oscuro para lectura cómoda (no negro puro) */
+    line-height: 1.5; /* Altura de línea para mejor legibilidad */
+}
+
+/* Imágenes dentro de las tarjetas ODS */
 .ODS img {
     width: 100px;
     height: 100px;
-    object-fit: cover;
-    /* ELIMINAR O SIMPLIFICAR: el centrado ahora lo hace align-items: center del padre */
-    /* margin: 5px auto 10px auto;  <-- ESTO SE ELIMINA/SIMPLIFICA */
-    margin-top: 5px;
+    object-fit: cover; /* Evita que la imagen se deforme */
     margin-bottom: 10px;
+    /* Opcional: bordes redondeados en las imágenes quedan bien con este estilo */
+    border-radius: 10px; 
 }
 
+   /*ESTRUCTURA ESPECÍFICA DE CADA TIPO DE TARJETA*/
+   
+/* --- 1. TARJETA AGENDA 2030 (La ancha de arriba) --- */
+.Agenda2030 {
+    width: 100%; /* Ocupa todo el ancho */
+    display: flex;
+}
 
-.ODS .contenido-oculto {
-    /* Ocupa el ancho completo de la tarjeta, cayendo debajo (por ser flex-direction: column) */
-    order: 3;
-    display: none;
+#contenedor-agenda {
+    display: inline-flex;
+    flex-direction: row; /* Elementos en fila: Imagen izq - Texto der */
+    flex-wrap: nowrap;
     width: 100%;
-    /*padding-top: 5px;*/
-    text-align: left; /* Alineamos el texto a la izquierda para la lectura */
+    align-items: center; /* Centrado vertical */
+    
 }
-
-/* Pseudo-clase :hover para mostrar el contenido oculto en ODS */
-.ODS:hover .contenido-oculto {
+.contenedor-ParrafoVideo {
     display: block;
-    box-sizing: border-box;
+}
+/* Bloque izquierdo: Título + Imagen */
+.contenedor-img2030Titulo {
+    display: inline-flex;
+    flex-direction: column; /* Uno debajo del otro */
+    width: 250px;
+    align-items: center;
+    margin-right: 20px;
+    flex-shrink: 0; /* Impide que este bloque se encoja */
 }
 
-
-/* ------------------ REQUISITO 2: ODS 14 (4 por Fila, Centrado, Hover) ------------------ */
-
-.tarjeta_ODS14 {
-    /*Ocupara todo el ancho de la pantalla*/
-    width: 100%;
-    /* 2. Solo aparezcan los títulos en bloque (apilados con columna) */
-    display: flex; /* Usamos flex para centrar */
-    flex-direction: column;
-    /* CENTRADO: Centra los títulos horizontalmente */
+/* Bloque derecho: Texto */
+.textoAgenda2030 {
+    flex: 1; /* Ocupa todo el espacio restante */
+    display: flex;
     align-items: center;
-    /* CENTRADO: Centra verticalmente */
     justify-content: center;
 }
 
-/* Asegurar que el título sea negrita y centrado */
-.ODS14 {
-    display:block;
-    width:100%;
+.textoAgenda2030 p {
+    width: 100%;
+    margin: 0;
+    text-align: left;
 }
-.tarjeta_ODS14 h4 {
-    font-weight: bold;
+
+
+/* --- 2. TARJETAS ODS --- */
+.ODS {
+    /* Calculamos el ancho para que quepan 4 (25%) restando el hueco (gap) */
+    width: calc(25% - 20px); 
+    display: flex;
+    flex-direction: column; /* Título, imagen y texto oculto uno bajo otro */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    /*align-items:center;*/
-    /* Aseguramos que el H4 sea de bloque para ocupar su propia línea y centrarse */
+}
+
+/* Contenedor visual inicial (Título + Imagen) */
+.tituloimgODS {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Contenido que aparece al pasar el ratón */
+.ODS .contenido-oculto {
+    order: 3;
+    display: none; /* Oculto por defecto */
+    width: 100%;
+    text-align: left;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee; /* Pequeña línea separadora */
+}
+
+/* Al hacer hover en la tarjeta ODS, mostramos el contenido oculto */
+.ODS:hover .contenido-oculto {
     display: block;
 }
 
-/* Ocultar el contenido inicialmente para ODS14 */
+
+/* --- 3. TARJETA ODS 14 --- */
+.tarjeta_ODS14 {
+    /* (ESTILO LAURA): Fondo blanco puro */
+    background-color: white;
+    /* Borde gris muy suave y esquinas redondeadas */
+    border: 1px solid #e1e1e1;
+    border-radius: 15px;
+    /* Sombra paralela muy sutil */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    /* CORRECCIÓN DE ESPACIADO */
+    box-sizing: border-box; /* Crucial: incluye padding en el 100% */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 20px; /* Espacio interno */
+    margin-bottom: 20px; /* Solo margen inferior para separar tarjetas */
+    /* Animación suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 150px;
+    /* Flex para centrar contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.tarjeta_ODS14 h4 {
+    text-align: center;
+    display: block;
+}
+
 .tarjeta_ODS14 .contenido-oculto {
     display: none;
     width: 100%;
-    padding-top: 10px;
-    text-align: left; /* Alineamos el texto de la explicación a la izquierda */
+    padding-top: 15px;
+    text-align: left;
 }
 
-/* Pseudo-clase :hover para mostrar el contenido oculto en ODS14 */
 .tarjeta_ODS14:hover .contenido-oculto {
     display: block;
-    padding-left: 15px;
-    box-sizing: border-box;
 }
 
-    /* ------------------ REQUISITO 6: Ajuste de Tabla (Impacto en la Economía) ------------------ */
-
+/* Estilo específico para la Tabla dentro de ODS 14 */
 .tarjeta_ODS14 table {
-    /* 6. La tabla se ajuste a su contenedor y no se salga. */
     width: 100%;
     box-sizing: border-box;
-    border-collapse: collapse;
-    margin-top: 10px;
+    border-collapse: collapse; /* Bordes de tabla unidos */
+    margin-top: 15px;
+    background-color: white;
 }
 
-/* 4. Estilo para las celdas de la tabla */
 .tarjeta_ODS14 th, .tarjeta_ODS14 td {
-    border: 1px solid #aaa;
-    padding: 8px;
+    border: 1px solid #e1e1e1;
+    padding: 10px;
     text-align: left;
-    box-sizing: border-box;
+    color: #555;
 }
 
-.video-ODS14 {
-    /* 1. Activar Flexbox */
+.tarjeta_ODS14 th {
+    background-color: #0077b6; /* Cabecera de tabla azul */
+    color: white;
+}
+
+/* Estilo para el contenedor del video */
+.video-ODS14, .video-Agenda2030 {
     display: flex;
-    /* 2. Centrar los hijos (el iframe) en el eje principal (horizontal) */
     justify-content: center;
-    /* 3. (Opcional) Centrar en el eje transversal (vertical) */
     align-items: center;
+    margin-top: 20px;
+}
+
+/* Clases utilitarias */
+.destacado {
+    font-weight: bold;
 }

@@ -1,7 +1,25 @@
 [
   {
     "nombre": "Marta",
-    "puntos": 6,
+    "puntos": 8,
+    "juego": "Quiz Marino",
+    "fecha": "12/12/2025"
+  },
+  {
+    "nombre": "Maria",
+    "puntos": 5,
+    "juego": "Quiz Marino",
+    "fecha": "12/12/2025"
+  },
+  {
+    "nombre": "Laura",
+    "puntos": 10,
+    "juego": "Quiz Marino",
+    "fecha": "12/12/2025"
+  },
+  {
+    "nombre": "Julia",
+    "puntos": 3,
     "juego": "Quiz Marino",
     "fecha": "12/12/2025"
   }
